@@ -3,7 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
+import { MainPage } from '../pages/main/main';
 import { ListPage } from '../pages/list/list';
 import { BasicPage } from '../pages/navigation/navigation';
 import { ModalPage } from '../pages/modals/modals';
@@ -11,10 +11,10 @@ import { ModalPage } from '../pages/modals/modals';
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp {
+export class Main {
   @ViewChild(Nav) nav: Nav; //primera pag cargada en nav controller
 
-  rootPage: any = HomePage;
+  rootPage: any = MainPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -23,7 +23,7 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Pagina principal', component: HomePage },
+      { title: 'Pagina principal', component: MainPage },
       { title: 'Lista de items', component: ListPage },
       { title: 'Herramientas angular', component: BasicPage },
       { title: 'El señor de los anillos', component: ModalPage }

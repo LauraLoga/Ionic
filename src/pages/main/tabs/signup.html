@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-navbar color= "green-lemon">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Signup</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+  
+    <ion-list>
+      <a ion-item (click)="openModal({sign: in})">
+        Sign in
+      </a>
+      <a ion-item (click)="openModal({sign: up})">
+        Sign up
+      </a>
+    </ion-list>
+  
+  </ion-content>
