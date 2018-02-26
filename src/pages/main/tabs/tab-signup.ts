@@ -2,31 +2,11 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
 
-@Component({
-  selector: 'tab-signup',
-  template:`
-  <ion-header>
-    <ion-navbar>
-      <ion-title>
-        signup
-      </ion-title>
-    </ion-navbar>
-  </ion-header>`
 
-
-})
-
-export class SignupTab {
-
-  constructor(public navCtrl: NavController) {
-
-  }
-
-}
 @Component({
   templateUrl: 'signup.html'
 })
-export class SignPage {
+export class SignupTab {
   constructor(public modalCtrl: ModalController) { }
   
   openModal(sign) {
@@ -38,7 +18,16 @@ export class SignPage {
 @Component({
   
   template:`
-  
+  <ion-header>
+    <ion-toolbar color= "green-lemon">
+      <ion-buttons start>
+        <button ion-button (click)="dismiss()">
+          <span ion-text color="purple" showWhen="ios">Cancel</span>
+          <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
   <ion-content>
   <ion-list>
     <ion-item>
@@ -58,14 +47,14 @@ export class SignPage {
   </ion-content>` 
 })
 export class SignContentPage {
-  character;
+  option;
 
   constructor(
     public platform: Platform,
     public params: NavParams,
     public viewCtrl: ViewController
   ) {
-    var characters = [
+    var options = [
       {
         name: 'Sign in',
       },
@@ -73,7 +62,7 @@ export class SignContentPage {
         name: 'Sign up',
       }
     ];
-    this.character = characters[this.params.get('sign')];
+    this.option = options[this.params.get('sign')];
   }
 
   dismiss() {
