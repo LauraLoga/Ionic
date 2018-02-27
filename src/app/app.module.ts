@@ -9,7 +9,6 @@ import { BasicPage } from '../pages/navigation/navigation';
 import { NavigationDetailsPage } from '../pages/navigation/navigation';
 import { ModalPage } from '../pages/modals/modals';
 import { ModalContentPage } from '../pages/modals/modals';
-import { SignContentPage } from '../pages/main/tabs/tab-signup';
 
 import { SignupTab } from '../pages/main/tabs/tab-signup';
 import { ControlTab } from '../pages/main/tabs/tab-control';
@@ -26,7 +25,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     NavigationDetailsPage,
     ModalPage,
     ModalContentPage,
-    SignContentPage,
     SignupTab,
     ControlTab,
   ],
@@ -43,7 +41,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     NavigationDetailsPage,
     ModalPage,
     ModalContentPage,
-    SignContentPage,
     SignupTab,
     ControlTab,
   ],
