@@ -10,7 +10,6 @@ import { NavigationDetailsPage } from '../pages/navigation/navigation';
 import { ModalPage } from '../pages/modals/modals';
 import { ModalContentPage } from '../pages/modals/modals';
 import { StatusBar } from '@ionic-native/status-bar';
-import { SignContentPage } from '../pages/welcome/getStarted/getStarted';
 import { Welcome } from '../pages/welcome/welcome';
 
 import { ProfileTab } from '../pages/welcome/tabs/tab-profile';
@@ -27,7 +26,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     NavigationDetailsPage,
     ModalPage,
     ModalContentPage,
-    SignContentPage,
     ProfileTab,
     ControlTab,
     Welcome
@@ -45,7 +43,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     NavigationDetailsPage,
     ModalPage,
     ModalContentPage,
-    SignContentPage,
     ProfileTab,
     ControlTab,
     Welcome
