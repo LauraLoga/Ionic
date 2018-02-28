@@ -1,4 +1,11 @@
-<ion-header >
+
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
+
+
+@Component({
+  selector: 'app.scss', // estilo de home.scss
+  template: `<ion-header >
   <ion-navbar color= "green-lemon">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -14,4 +21,11 @@
   <ion-tab [root]="tab3Root" tabTitle="Control" tabIcon="options"></ion-tab>
 </ion-tabs>
 
-</ion-content>
+</ion-content>`
+})
+export class ProfileTab {
+  constructor(public navCtrl: NavController) {
+  
+  }
+
+}
