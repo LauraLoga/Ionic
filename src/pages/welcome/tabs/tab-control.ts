@@ -5,14 +5,6 @@ import { NavController } from 'ionic-angular';
   @Component({
     selector: 'tab-control',
     template: `
-    <ion-header>
-    <ion-navbar>
-      <ion-title>
-        Control
-      </ion-title>
-    </ion-navbar>
-  </ion-header>
-  
   <ion-content>
     <ion-list>
       <ion-list-header>Follow us on Twitter</ion-list-header>
