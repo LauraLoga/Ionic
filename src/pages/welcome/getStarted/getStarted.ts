@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { Welcome } from '../welcome';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -10,24 +9,20 @@ import { Welcome } from '../welcome';
 })
 export class GetStarted {
 
-  user: { 'name': string; 'password': string; };
-  @Output() signed = new EventEmitter<boolean>();
-  
-  constructor(public navCtrl: NavController) {
-    this.user =
-    {
-      'name': '',
-      'password': ''
-    }    
+  @Output() isSigned = new EventEmitter<boolean>();
+  @Output() userName = new EventEmitter();
+  formUser: FormGroup;
+
+  constructor(private _formBuilder: FormBuilder) {
+    this.formUser = this._formBuilder.group({
+      name: '',
+      password: ''
+    });
   }
 
-  signUp(user) {
-    this.user = user;
-    this.signed.emit(true);
-  }
-
-  cancel() {
-    this.navCtrl.push(Welcome);
+  login() {
+    this.isSigned.emit(true);
+    this.userName.emit(this.formUser.value.name)
   }
 
 }

@@ -11,13 +11,13 @@ import { ControlTab } from './tabs/tab-control';
 export class Welcome {
   getStarted = true;
   click = false;
-  signed = false;
-  user;
+  isSigned = false;
+  userName = "paco";
   tab2Root = ProfileTab;
   tab3Root = ControlTab;
   
   constructor(public navCtrl: NavController, public params: NavParams) {
-    this.user = this.params.get('user');
+    
   }
 
   openGetStartedPage() {
@@ -27,7 +27,12 @@ export class Welcome {
 
   }
   showMenu(sign){
-    this.signed = sign;
+    this.isSigned = sign;
     this.click = false;
+    console.log(this.userName);
+  }
+  showName(name){
+    console.log(this.userName);
+    this.userName = name;
   }
 }

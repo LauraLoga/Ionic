@@ -11,6 +11,7 @@ import { ModalPage } from '../pages/modals/modals';
 import { ModalContentPage } from '../pages/modals/modals';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Welcome } from '../pages/welcome/welcome';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { ProfileTab } from '../pages/welcome/tabs/tab-profile';
 import { ControlTab } from '../pages/welcome/tabs/tab-control';
@@ -28,7 +29,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ModalContentPage,
     ProfileTab,
     ControlTab,
-    Welcome
+    Welcome,
+    ReactiveFormsModule
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ModalContentPage,
     ProfileTab,
     ControlTab,
-    Welcome
+    Welcome,
+    ReactiveFormsModule
   ],
   providers: [
     StatusBar,

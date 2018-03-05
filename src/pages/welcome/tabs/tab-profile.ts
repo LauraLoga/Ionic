@@ -7,7 +7,7 @@ import { NavController } from 'ionic-angular';
   selector: 'tab-profile', // estilo de home.scss
   template: `
 <ion-content >
-
+<h1> Lahuibyug </h1>
 <ion-tabs>
   <ion-tab [root]="tab2Root" tabTitle="Profile" tabIcon="person"></ion-tab>
   <ion-tab [root]="tab3Root" tabTitle="Control" tabIcon="options"></ion-tab>
