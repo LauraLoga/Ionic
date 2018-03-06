@@ -2,12 +2,11 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-//import { GetStarted } from '../pages/main/getStarted';
 import { ListPage } from '../pages/list/list';
 import { BasicPage } from '../pages/navigation/navigation';
 import { ModalPage } from '../pages/modals/modals';
 import { Welcome } from '../pages/welcome/welcome';
+import { ProfileTab } from '../pages/welcome/tabs/tab-profile';
 
 @Component({
   templateUrl: 'app.html'
@@ -24,7 +23,7 @@ export class Main {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Pagina principal', component: Welcome },
+      { title: 'Pagina principal', component: ProfileTab },
       { title: 'Lista de items', component: ListPage },
       { title: 'Herramientas angular', component: BasicPage },
       { title: 'El señor de los anillos', component: ModalPage }

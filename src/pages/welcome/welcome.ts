@@ -2,7 +2,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ProfileTab } from './tabs/tab-profile';
-import { ControlTab } from './tabs/tab-control';
 
 @Component({
   selector: 'welcome', // estilo de home.scss
@@ -13,8 +12,6 @@ export class Welcome {
   click = false;
   isSigned = false;
   userName = "paco";
-  tab2Root = ProfileTab;
-  tab3Root = ControlTab;
   
   constructor(public navCtrl: NavController, public params: NavParams) {
     
@@ -27,6 +24,7 @@ export class Welcome {
 
   }
   showMenu(sign){
+    this.navCtrl.push(ProfileTab);
     this.isSigned = sign;
     this.click = false;
     console.log(this.userName);

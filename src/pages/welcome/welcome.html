@@ -28,11 +28,8 @@
           </getStarted>
         </div>
     </ion-grid>
-    <ion-tabs *ngIf="(isSigned)">
-        <getStarted (userName) = "showName($event)">
+        <getStarted *ngIf="(isSigned)" (userName) = "showName($event)">
           
         </getStarted>
-        <ion-tab [root]="tab2Root" tabTitle="Profile" tabIcon="person"></ion-tab>
-        <ion-tab [root]="tab3Root" tabTitle="Control" tabIcon="options"></ion-tab>
-      </ion-tabs>
+        
   </ion-content>
