@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class GetStarted {
 
-  @Output() isSigned = new EventEmitter<boolean>();
+  @Output() onSigned = new EventEmitter<boolean>();
   @Output() userName = new EventEmitter();
   formUser: FormGroup;
 
@@ -21,7 +21,7 @@ export class GetStarted {
   }
 
   login() {
-    this.isSigned.emit(true);
+    this.onSigned.emit(true);
     this.userName.emit(this.formUser.value.name)
   }
 

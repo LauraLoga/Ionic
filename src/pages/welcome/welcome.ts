@@ -8,10 +8,7 @@ import { ProfileTab } from './tabs/tab-profile';
   templateUrl: 'welcome.html'
 })
 export class Welcome {
-  getStarted = true;
-  click = false;
-  isSigned = false;
-  userName = "paco";
+  showButtonStarted = true;
   
   constructor(public navCtrl: NavController, public params: NavParams) {
     
@@ -19,18 +16,11 @@ export class Welcome {
 
   openGetStartedPage() {
 
-    this.getStarted = false;
-    this.click = true;
-
+    this.showButtonStarted = false;
   }
-  showMenu(sign){
-    this.navCtrl.push(ProfileTab);
-    this.isSigned = sign;
-    this.click = false;
-    console.log(this.userName);
-  }
+ 
   showName(name){
-    console.log(this.userName);
-    this.userName = name;
+    this.navCtrl.push(ProfileTab,{ item: name });
+    console.log(name);
   }
 }

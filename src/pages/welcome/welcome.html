@@ -18,18 +18,11 @@
       </ion-item>
     </ion-list>
     <ion-grid>
-        <div *ngIf="getStarted">
-        <ion-row justify-content-center >
+        <ion-row *ngIf="showButtonStarted"justify-content-center >
             <button ion-button color="purple"  (click)="openGetStartedPage()">Get Started</button>
-        </ion-row>
-      </div>
-        <div *ngIf="click"> 
-          <getStarted (isSigned)="showMenu($event)" >
+        </ion-row> 
+          <getStarted *ngIf="!showButtonStarted" (userName)="showName($event)" >
           </getStarted>
-        </div>
-    </ion-grid>
-        <getStarted *ngIf="(isSigned)" (userName) = "showName($event)">
-          
-        </getStarted>
+      </ion-grid>
         
   </ion-content>
