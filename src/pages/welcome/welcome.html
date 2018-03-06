@@ -13,23 +13,16 @@
       <ion-list-header  color = "light-lemon">A world that works for you</ion-list-header>
       <ion-item  color = "light-lemon"> 
         <ion-icon name="home" item-start></ion-icon>
-        {{user}}
         This is the free way to get all your devices talking to each other.
-        background-image: 'assets/imgs/fondo-verde.jpg'
+        
       </ion-item>
     </ion-list>
     <ion-grid>
-        <div *ngIf="getStarted">
-        <ion-row justify-content-center >
+        <ion-row *ngIf="showButtonStarted"justify-content-center >
             <button ion-button color="purple"  (click)="openGetStartedPage()">Get Started</button>
-        </ion-row>
-      </div>
-        <div *ngIf="click"> 
-          <getStarted (signed)="showMenu($event)"></getStarted>
-        </div>
-    </ion-grid>
-    <ion-tabs *ngIf="(signed)">
-        <ion-tab [root]="tab2Root" tabTitle="Profile" tabIcon="person"></ion-tab>
-        <ion-tab [root]="tab3Root" tabTitle="Control" tabIcon="options"></ion-tab>
-      </ion-tabs>
+        </ion-row> 
+          <getStarted *ngIf="!showButtonStarted" (userName)="showName($event)" >
+          </getStarted>
+      </ion-grid>
+        
   </ion-content>

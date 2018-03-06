@@ -1,23 +1,49 @@
 
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { ControlTab } from './tab-control';
+
+import { Component , OnInit} from '@angular/core';
+import { NavParams } from 'ionic-angular';
 
 
 @Component({
-  selector: 'tab-profile', // estilo de home.scss
   template: `
-<ion-content >
+    <ion-header>
+      <ion-toolbar color= "green-lemon">
+      <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>My Profile</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+    Bienvenido a la app {{ name }}
+    </ion-content>
+`})
+export class TabBasicContentPage implements OnInit {
+  name;
+  constructor(public params: NavParams) {  }
 
-<ion-tabs>
-  <ion-tab [root]="tab2Root" tabTitle="Profile" tabIcon="person"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Control" tabIcon="options"></ion-tab>
-</ion-tabs>
-
-</ion-content>`
-})
-export class ProfileTab {
-  constructor(public navCtrl: NavController) {
-  
+  ngOnInit(): void {
+    this.name = this.params.data;
   }
+}
 
+@Component({
+  template: `
+    <ion-tabs class="tabs-basic">
+    <ion-tab [root]="profile" tabTitle="Profile" [rootParams]="name" tabIcon="chat"></ion-tab>
+    <ion-tab [root]="control" tabTitle="Control" tabIcon="chat"></ion-tab>
+    </ion-tabs>
+`})
+export class ProfileTab implements OnInit {
+  
+  profile = TabBasicContentPage;
+  control = ControlTab;
+  name;
+  constructor(public params: NavParams) {  }
+
+  ngOnInit(): void {
+    this.name = this.params.data.item;
+    
+  }
 }

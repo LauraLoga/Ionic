@@ -1,14 +1,16 @@
 
+  <form [formGroup]="formUser" (ngSubmit)="login()">
     <ion-row justify-content-center>
       <ion-list >
         <ion-item class="input-signup" color="light-lemon"> 
-          <ion-input type="text" [(ngModel)]="user.name" placeholder="Username"></ion-input>
+          <ion-input type="text" placeholder="Username" formControlName= "name"></ion-input>
         </ion-item>
         <ion-item class="input-signup" color="light-lemon"> 
-          <ion-input type="password" [(ngModel)]="user.password" placeholder="Password"></ion-input>
+          <ion-input type="password"  placeholder="Password" formControlName= "password"></ion-input>
         </ion-item>
-        <button ion-button class="signup" type="submit" color="purple" (click)="signUp(user)" block>Sign In</button>
+        <button ion-button type="submit" color="purple" block>Sign In</button>
       </ion-list>
     </ion-row>
-   
+  </form>  
+    
   
