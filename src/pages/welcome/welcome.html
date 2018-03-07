@@ -19,10 +19,10 @@
     </ion-list>
     <ion-grid>
         <ion-row *ngIf="showButtonStarted"justify-content-center >
-            <button ion-button color="purple"  (click)="openGetStartedPage()">Get Started</button>
+            <button ion-button color="purple"  (click)="openLoginPage()">Get Started</button>
         </ion-row> 
-          <getStarted *ngIf="!showButtonStarted" (userName)="showName($event)" >
-          </getStarted>
+          <login *ngIf="!showButtonStarted" (userName)="showName($event)" >
+          </login>
       </ion-grid>
         
   </ion-content>

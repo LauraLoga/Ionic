@@ -10,22 +10,18 @@ import { Storage } from '@ionic/storage';
 })
 export class Welcome {
   showButtonStarted = true;
-  
+
   constructor(public navCtrl: NavController, public params: NavParams, private storage: Storage) {
-    
+
   }
-  openGetStartedPage() {
+  openLoginPage() {
 
     this.showButtonStarted = false;
   }
- 
-  showName(name){
-    debugger
-    this.storage.set('name', name);
-    this.storage.get('name').then((val) => {
-      console.log('Your name is', val);
-      this.navCtrl.push(ProfileTab,{ item: name });
-    });
-    console.log(name);
+
+  showName(name) {
+    this.storage.set('name', name)
+      .then(item => this.navCtrl.push(ProfileTab, { item }))
+      .catch(() => console.log("error al guardar el usuario"));
   }
 }

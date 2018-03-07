@@ -3,11 +3,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 
 @Component({
-  selector: 'getStarted',
-  templateUrl: 'getStarted.html'
+  selector: 'login',
+  templateUrl: 'login.html'
 
 })
-export class GetStarted {
+export class Login {
 
   @Output() onSigned = new EventEmitter<boolean>();
   @Output() userName = new EventEmitter();

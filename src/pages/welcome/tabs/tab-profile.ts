@@ -19,20 +19,19 @@ import { NavParams } from 'ionic-angular';
     <ion-content>
     <ion-grid>
     <ion-row>
-      <ion-col col-12>Bienvenido a la app {{ name }} {{nameStorage}}</ion-col>
+      <ion-col col-12>Bienvenido a la app {{name}}</ion-col>
     </ion-row>
   </ion-grid>
     </ion-content>
 `})
 export class TabBasicContentPage implements OnInit {
   name;
-  nameStorage;
   constructor(public params: NavParams, private storage: Storage) {  }
 
   ngOnInit(): void {
-    debugger
-    this.name = this.params.data;
-    this.nameStorage = this.storage.get('name');
+    this.name =  this.storage.get('name').then((val) => {
+      this.name = val;
+    });
   }
 }
 

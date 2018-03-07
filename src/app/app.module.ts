@@ -4,7 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { Main } from './app.component';
-import { GetStarted } from '../pages/welcome/getStarted/getStarted';
+import { Login } from '../pages/welcome/login/login';
 import { ListPage } from '../pages/list/list';
 import { BasicPage } from '../pages/navigation/navigation';
 import { NavigationDetailsPage } from '../pages/navigation/navigation';
@@ -21,7 +21,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     Main,
-    GetStarted,
+    Login,
     ListPage,
     BasicPage,
     NavigationDetailsPage,
@@ -40,7 +40,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     Main,
-    GetStarted,
+    Login,
     ListPage,
     BasicPage,
     NavigationDetailsPage,
