@@ -1,6 +1,7 @@
 
 import { ControlTab } from './tab-control';
 
+import { Storage } from '@ionic/storage';
 import { Component , OnInit} from '@angular/core';
 import { NavParams } from 'ionic-angular';
 
@@ -16,15 +17,18 @@ import { NavParams } from 'ionic-angular';
       </ion-toolbar>
     </ion-header>
     <ion-content>
-    Bienvenido a la app {{ name }}
+    Bienvenido a la app {{ name }} {{nameStorage}}
     </ion-content>
 `})
 export class TabBasicContentPage implements OnInit {
   name;
-  constructor(public params: NavParams) {  }
+  nameStorage;
+  constructor(public params: NavParams, private storage: Storage) {  }
 
   ngOnInit(): void {
+    debugger
     this.name = this.params.data;
+    this.nameStorage = this.storage.get('name');
   }
 }
 
