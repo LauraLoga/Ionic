@@ -17,7 +17,11 @@ import { NavParams } from 'ionic-angular';
       </ion-toolbar>
     </ion-header>
     <ion-content>
-    Bienvenido a la app {{ name }} {{nameStorage}}
+    <ion-grid>
+    <ion-row>
+      <ion-col col-12>Bienvenido a la app {{ name }} {{nameStorage}}</ion-col>
+    </ion-row>
+  </ion-grid>
     </ion-content>
 `})
 export class TabBasicContentPage implements OnInit {
@@ -35,8 +39,8 @@ export class TabBasicContentPage implements OnInit {
 @Component({
   template: `
     <ion-tabs class="tabs-basic">
-    <ion-tab [root]="profile" tabTitle="Profile" [rootParams]="name" tabIcon="chat"></ion-tab>
-    <ion-tab [root]="control" tabTitle="Control" tabIcon="chat"></ion-tab>
+    <ion-tab [root]="profile" tabTitle="Profile" [rootParams]="name" tabIcon="person"></ion-tab>
+    <ion-tab [root]="control" tabTitle="Control" tabIcon="options"></ion-tab>
     </ion-tabs>
 `})
 export class ProfileTab implements OnInit {

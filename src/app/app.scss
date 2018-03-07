@@ -36,4 +36,24 @@
     background-image: url('../assets/imgs/fondo-verde.jpg');
     background-size: cover;
 }
-
+.tabs-md .tabbar {
+  background-color:#f0f4c3;
+}
+.tabs-ios .tabbar {
+    background-color:#f0f4c3;
+}
+.tabs-ios .tab-button[aria-selected=true] .tab-button-icon{
+    color:#9c27b0;
+}
+.tabs-md .tab-button[aria-selected=true] .tab-button-icon{
+    color:#9c27b0;
+}
+.tabs-md .tab-button[aria-selected=true]{
+    color:#9c27b0;
+}
+.tabs-ios .tab-button[aria-selected=true]{
+    color:#9c27b0;
+}
+ion-app.md{
+    font-size: 4.4rem;
+}
