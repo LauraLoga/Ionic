@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -9,19 +9,17 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class Login {
 
-  @Output() onSigned = new EventEmitter<boolean>();
   @Output() userName = new EventEmitter();
   formUser: FormGroup;
 
   constructor(private _formBuilder: FormBuilder) {
     this.formUser = this._formBuilder.group({
-      name: '',
-      password: ''
+      name: ['', { validators: Validators.required }],
+      password: ['', { validators: Validators.required }]
     });
   }
 
   login() {
-    this.onSigned.emit(true);
     this.userName.emit(this.formUser.value.name)
   }
 

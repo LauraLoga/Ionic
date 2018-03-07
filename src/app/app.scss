@@ -16,14 +16,15 @@
 // automatically applied to the <body> element in the app.
 .item-inner{
     margin:0px;
+    
+}
+.item-block {
+    margin-bottom: 3%;
+    opacity: 0.7;
 }
 .input-signup{
     opacity: 0.7;
     margin-bottom: 5%;
-}
-.img{
-    background-image: url('../assets/imgs/guisantes.jpg');
-    background-size: cover;
 }
 .button-close{
     opacity:0.4;
@@ -32,8 +33,20 @@
 .signup{
     padding: 20px;
 }
-.scroll-content{
+.welcome{
     background-image: url('../assets/imgs/fondo-verde.jpg');
+    background-size: cover;
+}
+.menu{
+    background-image: url('../assets/imgs/guisantes.jpg');
+    background-size: cover;
+}
+.profile{
+    background-image: url('../assets/imgs/habichuelas.jpg');
+    background-size: cover;
+}
+.control{
+    background-image: url('../assets/imgs/tomatoes.jpg');
     background-size: cover;
 }
 .tabs-md .tabbar {
@@ -54,6 +67,6 @@
 .tabs-ios .tab-button[aria-selected=true]{
     color:#9c27b0;
 }
-ion-app.md{
-    font-size: 4.4rem;
+ion-label{
+    white-space: initial;
 }

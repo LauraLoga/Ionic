@@ -1,28 +1,23 @@
+<ion-header>
+  <ion-toolbar color="green-lemon">
+    <ion-title>Welcome</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="welcome">
 
-  <ion-header>
-      <ion-toolbar color= "green-lemon">
-          <button *ngIf="(signed)" ion-button menuToggle>
-              <ion-icon name="menu"></ion-icon>
-            </button>
-          <ion-title>Welcome</ion-title>
-      </ion-toolbar>
-  </ion-header>
-  <ion-content>
-      
-    <ion-list >
-      <ion-list-header  color = "light-lemon">A world that works for you</ion-list-header>
-      <ion-item  color = "light-lemon"> 
-        <ion-icon name="home" item-start></ion-icon>
-        This is the free way to get all your devices talking to each other.
-        
-      </ion-item>
-    </ion-list>
-    <ion-grid>
-        <ion-row *ngIf="showButtonStarted"justify-content-center >
-            <button ion-button color="purple"  (click)="openLoginPage()">Get Started</button>
-        </ion-row> 
-          <login *ngIf="!showButtonStarted" (userName)="showName($event)" >
-          </login>
-      </ion-grid>
-        
-  </ion-content>
+  <ion-list>
+    <ion-list-header color="light-lemon">A world that works for you</ion-list-header>
+  </ion-list>
+  <ion-item color="light-lemon">
+      <ion-icon name="home" item-start></ion-icon>
+      This is the free way to get all your devices talking to each other.
+    </ion-item>
+  <ion-grid>
+    <ion-row *ngIf="showButtonStarted" justify-content-center>
+      <button ion-button color="purple" (click)="openLoginPage()">Get Started</button>
+    </ion-row>
+    <login *ngIf="!showButtonStarted" (userName)="showName($event)">
+    </login>
+  </ion-grid>
+
+</ion-content>

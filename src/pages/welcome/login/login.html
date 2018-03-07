@@ -3,12 +3,30 @@
     <ion-row justify-content-center>
       <ion-list >
         <ion-item class="input-signup" color="light-lemon"> 
-          <ion-input type="text" placeholder="Username" formControlName= "name"></ion-input>
+          <ion-input 
+            type="text" 
+            placeholder="Username" 
+            formControlName= "name"></ion-input>
         </ion-item>
         <ion-item class="input-signup" color="light-lemon"> 
-          <ion-input type="password"  placeholder="Password" formControlName= "password"></ion-input>
+          <ion-input 
+            type="password"  
+            placeholder="Password" 
+            formControlName= "password"></ion-input>
         </ion-item>
-        <button ion-button type="submit" color="purple" block>Sign In</button>
+        <span *ngIf=
+          "formUser.get('name','password').invalid 
+          && formUser.get('name','password').touched 
+          || formUser.get('password').invalid 
+          && formUser.get('password').touched">
+          Los campos son obligatiorios
+        </span>
+        <button 
+          ion-button type="submit" 
+          color="purple" block 
+          [disabled]="formUser.invalid">
+          Sign In
+        </button>
       </ion-list>
     </ion-row>
   </form>  

@@ -16,7 +16,7 @@ import { NavParams } from 'ionic-angular';
         <ion-title>My Profile</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content>
+    <ion-content class="profile">
     <ion-grid>
     <ion-row>
       <ion-col col-12>Bienvenido a la app {{name}}</ion-col>

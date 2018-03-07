@@ -13,7 +13,7 @@ import { NavController } from 'ionic-angular';
       <ion-title>Control</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content>
+  <ion-content class="control">
     <ion-list>
       <ion-list-header>Follow us on Twitter</ion-list-header>
       <ion-item>
