@@ -1,7 +1,7 @@
 
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { ProfileTab } from './tabs/tab-profile';
+import { TabBasicContentPage } from './tabs/tab-basic';
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -21,7 +21,7 @@ export class Welcome {
 
   showName(name) {
     this.storage.set('name', name)
-      .then(item => this.navCtrl.push(ProfileTab, { item }))
+      .then(item => this.navCtrl.push(TabBasicContentPage, { item }))
       .catch(() => console.log("error al guardar el usuario"));
   }
 }

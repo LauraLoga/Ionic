@@ -1,6 +1,4 @@
 
-import { ControlTab } from './tab-control';
-
 import { Storage } from '@ionic/storage';
 import { Component , OnInit} from '@angular/core';
 import { NavParams } from 'ionic-angular';
@@ -16,17 +14,27 @@ import { NavParams } from 'ionic-angular';
         <ion-title>My Profile</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="profile">
-    <ion-grid>
+    <ion-content color="light-purple">
+    <ion-grid class="transparent">
     <ion-row>
-      <ion-col col-12>Bienvenido a la app {{name}}</ion-col>
+      <ion-col col-12><h2>Welcome to the app {{name}}</h2></ion-col>
+      <ion-col col-12>My devices</ion-col>
+      <ion-col col-12 *ngFor="let device of devices">{{device.title}}</ion-col>
     </ion-row>
   </ion-grid>
     </ion-content>
 `})
-export class TabBasicContentPage implements OnInit {
+export class ProfileTab implements OnInit {
+  devices: Array<{title: string}>;
+  col;
   name;
-  constructor(public params: NavParams, private storage: Storage) {  }
+
+  constructor(public params: NavParams, private storage: Storage) { 
+    this.devices = [ { title:'Greenhouse' } ];
+    this.col = this.devices.length;
+    console.log(this.col);
+    console.log(this.devices);
+  }
 
   ngOnInit(): void {
     this.name =  this.storage.get('name').then((val) => {
@@ -35,22 +43,3 @@ export class TabBasicContentPage implements OnInit {
   }
 }
 
-@Component({
-  template: `
-    <ion-tabs class="tabs-basic">
-    <ion-tab [root]="profile" tabTitle="Profile" [rootParams]="name" tabIcon="person"></ion-tab>
-    <ion-tab [root]="control" tabTitle="Control" tabIcon="options"></ion-tab>
-    </ion-tabs>
-`})
-export class ProfileTab implements OnInit {
-  
-  profile = TabBasicContentPage;
-  control = ControlTab;
-  name;
-  constructor(public params: NavParams) {  }
-
-  ngOnInit(): void {
-    this.name = this.params.data.item;
-    
-  }
-}

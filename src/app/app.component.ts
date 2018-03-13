@@ -2,11 +2,11 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { ListPage } from '../pages/list/list';
-import { BasicPage } from '../pages/navigation/navigation';
+import { SensorsPage } from '../pages/sensors/sensors';
+import { ActuatorsPage } from '../pages/actuators/actuators';
 import { ModalPage } from '../pages/modals/modals';
 import { Welcome } from '../pages/welcome/welcome';
-import { ProfileTab } from '../pages/welcome/tabs/tab-profile';
+import { TabBasicContentPage } from '../pages/welcome/tabs/tab-basic';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,11 +21,11 @@ export class Main {
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
+    // used for an example of ngFor and actuators
     this.pages = [
-      { title: 'Pagina principal', component: ProfileTab },
-      { title: 'Lista de items', component: ListPage },
-      { title: 'Herramientas angular', component: BasicPage },
+      { title: 'Pagina principal', component: TabBasicContentPage },
+      { title: 'List of sensors', component: SensorsPage },
+      { title: 'List of actuators', component: ActuatorsPage },
       { title: 'El señor de los anillos', component: ModalPage }
     ];
 

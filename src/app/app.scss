@@ -42,11 +42,19 @@
     background-size: cover;
 }
 .profile{
-    background-image: url('../assets/imgs/habichuelas.jpg');
+    background-image: url('../assets/imgs/fruta.jpg');
+    background-size: cover;
+}
+.sensors{
+    background-color: #e1bee7;
     background-size: cover;
 }
 .control{
     background-image: url('../assets/imgs/tomatoes.jpg');
+    background-size: cover;
+}
+.actuators{
+    background-image: url('../assets/imgs/cielo.jpg');
     background-size: cover;
 }
 .tabs-md .tabbar {
@@ -69,4 +77,8 @@
 }
 ion-label{
     white-space: initial;
+}
+.transparent{
+    background-color:#f0f4c3;
+    opacity: 0.5;
 }

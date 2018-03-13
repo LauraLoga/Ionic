@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-navbar color= "green-lemon">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>List of actuators</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content class ="actuators">
+    <ion-list>
+      <button ion-item *ngFor="let item of items" (click)="openNavDetailsPage(item)" icon-start>
+        <ion-icon [name]="item.icon" [ngStyle]="{'color': item.color}" item-start></ion-icon>
+        {{ item.title }}
+      </button>
+    </ion-list>
+  </ion-content>
