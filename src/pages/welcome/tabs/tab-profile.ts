@@ -1,45 +1,34 @@
 
 import { Storage } from '@ionic/storage';
-import { Component , OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavParams } from 'ionic-angular';
 
 
 @Component({
-  template: `
-    <ion-header>
-      <ion-toolbar color= "green-lemon">
-      <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-        <ion-title>My Profile</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content color="light-purple">
-    <ion-grid class="transparent">
-    <ion-row>
-      <ion-col col-12><h2>Welcome to the app {{name}}</h2></ion-col>
-      <ion-col col-12>My devices</ion-col>
-      <ion-col col-12 *ngFor="let device of devices">{{device.title}}</ion-col>
-    </ion-row>
-  </ion-grid>
-    </ion-content>
-`})
+  templateUrl: 'tab-profile.html' })
 export class ProfileTab implements OnInit {
-  devices: Array<{title: string}>;
+  devices: Array<{ title: string; description: string }>;
   col;
   name;
+  showInput = false;
 
-  constructor(public params: NavParams, private storage: Storage) { 
-    this.devices = [ { title:'Greenhouse' } ];
+  constructor(public params: NavParams, private storage: Storage) {
+    this.devices = [
+      { title: 'Greenhouse', description: 'The main objective is to visualize in our phones a platform that monitoring and controlling' },
+      { title: 'AEMET', description: 'The weather' },
+      { title: 'Remote house', description: 'Robotic house' },
+      { title: 'Greenhouse 2', description: 'The main objective is to visualize in our phones a platform that monitoring and controlling' }
+    ];
     this.col = this.devices.length;
-    console.log(this.col);
-    console.log(this.devices);
   }
 
   ngOnInit(): void {
-    this.name =  this.storage.get('name').then((val) => {
+    this.name = this.storage.get('name').then((val) => {
       this.name = val;
     });
+  }
+  addDevice(){
+    this.showInput=true;
   }
 }
 

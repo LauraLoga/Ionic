@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-toolbar color="green-lemon">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>My Profile</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content color="dark-green">
+    <ion-grid class="transparent">
+        <ion-row>
+            <ion-col col-12>
+                <h2>Welcome to the app {{name}}</h2>
+            </ion-col>
+            <ion-col col-12>My devices</ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-card *ngFor="let device of devices" color="light-purple">
+
+        <ion-card-content>
+            <h1>{{device.title}}</h1>
+            <p>{{device.description}}</p>
+        </ion-card-content>
+
+    </ion-card>
+    <ion-row justify-content-center>
+        <button ion-button class="add-button" color="purple" (click)="addDevice()" icon-left>
+            <ion-icon name="add-circle"></ion-icon>
+            Add Device
+        </button>
+    </ion-row>
+    <ion-row *ngIf="showInput"justify-content-center>
+            <ion-list >
+              <ion-item class="input-signup" color="light-lemon"> 
+                <ion-input 
+                  type="text" 
+                  placeholder="Title">
+                </ion-input> 
+              </ion-item>
+              <ion-item class="input-signup" color="light-lemon"> 
+                <ion-input 
+                  type="text"  
+                  placeholder="Description">
+                </ion-input>
+              </ion-item>
+              <button ion-button color="purple" icon-only>
+                <ion-icon name="add-circle"></ion-icon>
+              </button>
+            </ion-list>
+          </ion-row>
+</ion-content>
