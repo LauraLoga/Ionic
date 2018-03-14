@@ -14,13 +14,6 @@ export class ProfileTab implements OnInit {
   descr: any;
 
   constructor(public params: NavParams, private storage: Storage) {
-
-  }
-
-  ngOnInit(): void {
-    this.name = this.storage.get('name').then((val) => {
-      this.name = val;
-    });
     this.devices = [
       { title: 'Greenhouse', description: 'The main objective is to visualize in our phones a platform that monitoring and controlling' },
       { title: 'AEMET', description: 'The weather' },
@@ -28,10 +21,15 @@ export class ProfileTab implements OnInit {
       { title: 'Greenhouse 2', description: 'The main objective is to visualize in our phones a platform that monitoring and controlling' }
     ];
   }
+
+  ngOnInit(): void {
+    this.name = this.storage.get('name').then((val) => {
+      this.name = val;
+    });
+  }
   addDevice(){
     this.showInput=true;
     this.devices.push(this.title, this.descr);
-    this.ngOnInit();
   }
 }
 
