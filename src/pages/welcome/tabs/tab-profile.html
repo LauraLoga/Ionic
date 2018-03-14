@@ -24,7 +24,7 @@
 
     </ion-card>
     <ion-row justify-content-center>
-        <button ion-button class="add-button" color="purple" (click)="addDevice()" icon-left>
+        <button ion-button class="add-button" color="purple" (click)="addDevice()" *ngIf="!showInput" icon-left>
             <ion-icon name="add-circle"></ion-icon>
             Add Device
         </button>

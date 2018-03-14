@@ -5,15 +5,17 @@ import { NavParams } from 'ionic-angular';
 
 
 @Component({
-  templateUrl: 'tab-profile.html' })
+  templateUrl: 'tab-profile.html'
+})
 export class ProfileTab implements OnInit {
   devices: Array<{ title: string; description: string }>;
   name;
   showInput = false;
-  title: any;
-  descr: any;
+  title: string = "";
+  descr: string ="";
 
   constructor(public params: NavParams, private storage: Storage) {
+    
     this.devices = [
       { title: 'Greenhouse', description: 'The main objective is to visualize in our phones a platform that monitoring and controlling' },
       { title: 'AEMET', description: 'The weather' },
@@ -27,9 +29,19 @@ export class ProfileTab implements OnInit {
       this.name = val;
     });
   }
-  addDevice(){
-    this.showInput=true;
-    this.devices.push(this.title, this.descr);
+  addDevice() {
+    this.showInput = !this.showInput;
+    if(this.title != "" && this.descr != ""){
+      this.devices.push({title:this.title, description:this.descr});
+      this.title = "";
+      this.descr = "";
+    }
+    else{
+      console.log("descr"+this.descr);
+      
+    }
   }
+
+  
 }
 
