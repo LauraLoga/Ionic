@@ -34,16 +34,18 @@
               <ion-item class="input-signup" color="light-lemon"> 
                 <ion-input 
                   type="text" 
-                  placeholder="Title">
+                  placeholder="Title"
+                  [(ngModel)]="title">
                 </ion-input> 
               </ion-item>
               <ion-item class="input-signup" color="light-lemon"> 
                 <ion-input 
                   type="text"  
-                  placeholder="Description">
+                  placeholder="Description"
+                  [(ngModel)]="descr">
                 </ion-input>
               </ion-item>
-              <button ion-button color="purple" icon-only>
+              <button ion-button color="purple" icon-only (click)=addDevice()>
                 <ion-icon name="add-circle"></ion-icon>
               </button>
             </ion-list>

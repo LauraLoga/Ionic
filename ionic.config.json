@@ -1,6 +1,6 @@
 {
   "name": "myAppMenu",
-  "app_id": "",
+  "app_id": "9cde89d4",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
