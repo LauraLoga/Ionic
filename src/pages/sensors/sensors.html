@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-navbar color= "green-lemon">
+  <ion-navbar color="green-lemon">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -7,19 +7,30 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class = "sensors">
-  <ion-list color="light-purple">
-    <button ion-item *ngFor="let sensor of sensorsList" (click)="itemTapped($event, sensor)">
-        <ion-col col-6>
-      <ion-icon [name]="sensor.icon" [ngStyle]="{'color': sensor.color}" item-start></ion-icon>
-      {{sensor.title}}
-    </ion-col>
-      <ion-col col-6 class="item-note" item-end>
-        {{sensor.note}}
+<ion-content>
+<ion-card class="sensors" *ngFor="let sensor of sensorsList">
+  <ion-item>
+    <ion-icon [name]="sensor.icon" [ngStyle]="{'color': sensor.color}" item-start></ion-icon>
+    <h2>{{sensor.title}}</h2>
+  </ion-item>
+  <ion-col col-6 class="attrs" *ngFor="let attr of sensor.attr" (click)="itemTapped($event, sensor)">
+        {{attr}}
       </ion-col>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
-</ion-content>
+  <ion-card-content>
+      <p>{{sensor.note}}</p>
+    </ion-card-content>
+  
+    <ion-row>
+        <ion-item>
+        <ion-label> 
+            <ion-icon name='power'></ion-icon> Activate 
+        </ion-label>
+        <ion-toggle  color="secondary"  > </ion-toggle>
+      </ion-item>
+        
+      
+      </ion-row>
+    
+    </ion-card>
+
+  </ion-content>

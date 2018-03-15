@@ -85,6 +85,17 @@ ion-label{
 .h1{
     background: color($colors, light-purple);
 }
+.card-md{
+    border-style: solid;
+    border-color: #f0f4c3;
+    border-radius: 7px;
+}
+.attr{
+    border-color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 7px;
+}
 /*.add-button{
     position: relative;
     left: 70%;
