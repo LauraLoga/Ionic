@@ -63,17 +63,20 @@
 .tabs-ios .tabbar {
     background-color:#f0f4c3;
 }
-.tabs-ios .tab-button[aria-selected=true] .tab-button-icon{
+.segment-ios .segment-button.segment-activated{
+    background-color:#9c27b0;
+    border-color:#9c27b0;
+}
+.segment-md .segment-button.segment-activated{
+    border-color:#9c27b0;
+}
+.segment-md .segment-button{
     color:#9c27b0;
 }
-.tabs-md .tab-button[aria-selected=true] .tab-button-icon{
+.segment-ios .segment-button{
     color:#9c27b0;
-}
-.tabs-md .tab-button[aria-selected=true]{
-    color:#9c27b0;
-}
-.tabs-ios .tab-button[aria-selected=true]{
-    color:#9c27b0;
+    border-color:#9c27b0;
+    
 }
 ion-label{
     white-space: initial;
