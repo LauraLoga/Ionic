@@ -14,7 +14,7 @@
     </ion-item>
   <ion-grid>
     <ion-row *ngIf="showButtonStarted" justify-content-center>
-      <button ion-button color="purple" (click)="openLoginPage()">Get Started</button>
+      <button ion-button color="purple" (click)="showButtonStarted = false">Get Started</button>
     </ion-row>
     <login *ngIf="!showButtonStarted" (userName)="showName($event)">
     </login>

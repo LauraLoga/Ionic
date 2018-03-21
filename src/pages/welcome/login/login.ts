@@ -22,5 +22,7 @@ export class Login {
   login() {
     this.userName.emit(this.formUser.value.name)
   }
-
+  isValid(){
+    return (this.formUser.invalid && this.formUser.touched)
+  }
 }
