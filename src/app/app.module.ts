@@ -58,8 +58,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    SQLite,
-    DatabaseService,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

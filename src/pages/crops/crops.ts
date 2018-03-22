@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { DatabaseService } from '../../services/database-service';
 
 @Component({
     templateUrl: 'crops.html'
@@ -29,7 +28,7 @@ export class Crops{
         name: string,
         idDevice: string
     }>
-    constructor(public navCtrl: NavController, public navParams: NavParams, private service: DatabaseService) {
+    constructor(public navCtrl: NavController, public navParams: NavParams) {
         
         
         this.crops = [
