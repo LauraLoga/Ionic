@@ -1,0 +1,59 @@
+<ion-header>
+    <ion-toolbar no-border-top color="green-lemon">
+      <ion-segment [(ngModel)]="option">
+        <ion-segment-button value="profile">
+        <ion-icon name="person"></ion-icon>  
+          Profile
+        </ion-segment-button>
+        <ion-segment-button value="control">
+        <ion-icon name="options"></ion-icon> 
+          Control
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+  </ion-header>
+
+
+<ion-content>
+<div [ngSwitch]="option">
+  <ion-list *ngSwitchCase="'profile'">
+        <ion-grid >
+                <ion-col col-12>
+                    <h2>Welcome to the app {{name}}</h2>
+                </ion-col>
+                <ion-col col-12>My devices</ion-col>
+        </ion-grid>
+    <ion-card *ngFor="let device of devices" color="light-purple">
+
+            <ion-card-content>
+                <h1>{{device.title}}</h1>
+                <p>{{device.description}}</p>
+            </ion-card-content>
+    
+        </ion-card>
+        <ion-row justify-content-center>
+            <button ion-button class="add-button" color="purple" (click)="showPrompt()" *ngIf="!showInput" icon-left>
+                <ion-icon name="add-circle"></ion-icon>
+                Add Device
+            </button>
+        </ion-row>
+        
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'control'">
+    <ion-item> 
+      Config
+      <ion-thumbnail item-start>
+        <img src="assets/img/thumbnail-kitten-1.jpg">
+      </ion-thumbnail>
+      <h2>Luna</h2>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/img/thumbnail-kitten-3.jpg">
+      </ion-thumbnail>
+      <h2>Milo</h2>
+    </ion-item>
+  </ion-list>    
+</div>
+</ion-content>
