@@ -34,7 +34,7 @@
     padding: 20px;
 }
 .welcome{
-    background-image: url('../assets/imgs/fondo-verde.jpg');
+    background-image: url('../assets/imgs/Tomates-invernadero.jpg');
     background-size: cover;
 }
 .menu{
@@ -103,3 +103,6 @@ ion-label{
     position: relative;
     left: 70%;
 }*/
+ion-navbar[hidebackbutton] button[menutoggle] {
+    display: block !important;
+  }

@@ -1,4 +1,4 @@
-<ion-header>
+<!--<ion-header>
     <ion-toolbar no-border-top color="green-lemon">
       <ion-segment [(ngModel)]="option">
         <ion-segment-button value="profile">
@@ -11,8 +11,15 @@
         </ion-segment-button>
       </ion-segment>
     </ion-toolbar>
-  </ion-header>
-
+  </ion-header>-->
+  <ion-header>
+      <ion-navbar color="green-lemon">
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>List of sensors</ion-title>
+      </ion-navbar>
+    </ion-header>
 
 <ion-content>
 <div [ngSwitch]="option">
