@@ -5,7 +5,7 @@ import { TabBasicContentPage } from './tabs/tab-basic';
 import { Storage } from '@ionic/storage';
 
 @Component({
-  selector: 'welcome', // estilo de home.scss
+  selector: 'welcome', 
   templateUrl: 'welcome.html'
 })
 export class Welcome {
@@ -13,10 +13,6 @@ export class Welcome {
 
   constructor(public navCtrl: NavController, public params: NavParams, private storage: Storage) {
 
-  }
-  openLoginPage() {
-
-    this.showButtonStarted = false;
   }
 
   showName(name) {

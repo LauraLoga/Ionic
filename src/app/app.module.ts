@@ -12,6 +12,7 @@ import { ModalPage } from '../pages/modals/modals';
 import { ModalContentPage } from '../pages/modals/modals';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Welcome } from '../pages/welcome/welcome';
+import { Crops } from '../pages/crops/crops';
 
 import { TabBasicContentPage } from '../pages/welcome/tabs/tab-basic';
 
@@ -27,7 +28,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ModalPage,
     ModalContentPage,
     Welcome,
-    TabBasicContentPage
+    TabBasicContentPage,
+    Crops
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ModalPage,
     ModalContentPage,
     Welcome,
-    TabBasicContentPage
+    TabBasicContentPage,
+    Crops
   ],
   providers: [
     StatusBar,

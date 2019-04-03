@@ -7,6 +7,7 @@ import { ActuatorsPage } from '../pages/actuators/actuators';
 import { ModalPage } from '../pages/modals/modals';
 import { Welcome } from '../pages/welcome/welcome';
 import { TabBasicContentPage } from '../pages/welcome/tabs/tab-basic';
+import { Crops } from '../pages/crops/crops';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,7 +27,9 @@ export class Main {
       { title: 'Pagina principal', component: TabBasicContentPage },
       { title: 'List of sensors', component: SensorsPage },
       { title: 'List of actuators', component: ActuatorsPage },
-      { title: 'El señor de los anillos', component: ModalPage }
+      { title: 'El señor de los anillos', component: ModalPage },
+      { title: 'My crops', component: Crops },
+      
     ];
 
   }

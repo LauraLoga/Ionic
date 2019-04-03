@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar color="green-lemon">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>My crops</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-col col-12>
+        <ion-row>
+            <ion-col col-6 *ngFor="let compartment of compartments">
+                {{compartment.name}}
+                <ion-row *ngFor="let crop of crops">
+                    <h2 *ngIf="compartment.idCrop == crop.idCrop">
+                        {{crop.name}}
+                    </h2>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+    </ion-col>
+    <ion-row justify-content-center>
+        <button ion-button class="add-button" color="purple" (click)="addCrop()" *ngIf="!showInput" icon-left>
+            <ion-icon name="add-circle"></ion-icon>
+            Add crop
+        </button>
+    </ion-row>
+</ion-content>

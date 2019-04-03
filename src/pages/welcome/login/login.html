@@ -14,11 +14,7 @@
             placeholder="Password" 
             formControlName= "password"></ion-input>
         </ion-item>
-        <span *ngIf=
-          "formUser.get('name','password').invalid 
-          && formUser.get('name','password').touched 
-          || formUser.get('password').invalid 
-          && formUser.get('password').touched">
+        <span *ngIf="isValid()">
           Los campos son obligatiorios
         </span>
         <button 
