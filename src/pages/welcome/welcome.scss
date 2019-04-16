@@ -2,3 +2,28 @@
     display: flex; 
     justify-content: center;
 }
+.toolbar-title-md{
+    text-align: center;
+}
+.toolbar-title-wp{
+    text-align: center;
+}
+.toolbar-md-dark .toolbar-title-md {
+    color: white;
+}
+.toolbar-title{
+    text-transform: uppercase;
+}
+td, { 
+    padding: 6px; 
+    border: 1px solid #ccc; 
+    text-align: left; 
+}
+.button-greenhouse{
+    height: 9em;
+    width: 20em;
+}
+.icons{
+    zoom: 3;
+    background-color: white;
+}

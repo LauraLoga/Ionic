@@ -14,8 +14,27 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .flex-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  .flex-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
 .item-inner{
-    margin:0px;
+    margin:2%;
     
 }
 .item-block {
@@ -34,8 +53,9 @@
     padding: 20px;
 }
 .welcome{
-    background-image: url('../assets/imgs/fondo-verde.jpg');
+    background-image: url('../assets/imgs/Tomates-invernadero.jpg');
     background-size: cover;
+    text-align: center;
 }
 .menu{
     background-image: url('../assets/imgs/guisantes.jpg');
@@ -84,6 +104,9 @@ ion-label{
 }
 .h1{
     background: color($colors, light-purple);
+}
+.button{
+    color: black;
 }
 /*.add-button{
     position: relative;

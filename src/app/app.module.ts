@@ -13,7 +13,7 @@ import { ModalContentPage } from '../pages/modals/modals';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Welcome } from '../pages/welcome/welcome';
 
-import { ProfileTab } from '../pages/welcome/tabs/tab-profile';
+import { Profile } from '../pages/welcome/tabs/profile';
 import { ControlTab } from '../pages/welcome/tabs/tab-control';
 import { TabBasicContentPage } from '../pages/welcome/tabs/tab-basic';
 
@@ -28,7 +28,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ActuatorsDetailsPage,
     ModalPage,
     ModalContentPage,
-    ProfileTab,
+    Profile,
     ControlTab,
     Welcome,
     TabBasicContentPage
@@ -47,7 +47,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ActuatorsDetailsPage,
     ModalPage,
     ModalContentPage,
-    ProfileTab,
+    Profile,
     ControlTab,
     Welcome,
     TabBasicContentPage

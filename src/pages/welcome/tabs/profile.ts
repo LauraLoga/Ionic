@@ -1,23 +1,24 @@
 
 import { Storage } from '@ionic/storage';
 import { Component, OnInit } from '@angular/core';
-import { NavParams } from 'ionic-angular';
+import { NavParams, NavController } from 'ionic-angular';
+import { ModalPage } from '../../modals/modals';
 
 
 @Component({
-  templateUrl: 'tab-profile.html' })
-export class ProfileTab implements OnInit {
+  templateUrl: 'profile.html' })
+export class Profile implements OnInit {
   devices: Array<{ title: string; description: string }>;
   col;
   name;
   showInput = false;
 
-  constructor(public params: NavParams, private storage: Storage) {
+  constructor(public navCtrl: NavController, public params: NavParams, private storage: Storage) {
     this.devices = [
       { title: 'Greenhouse', description: 'The main objective is to visualize in our phones a platform that monitoring and controlling' },
-      { title: 'AEMET', description: 'The weather' },
+    /*  { title: 'AEMET', description: 'The weather' },
       { title: 'Remote house', description: 'Robotic house' },
-      { title: 'Greenhouse 2', description: 'The main objective is to visualize in our phones a platform that monitoring and controlling' }
+    */  { title: 'Greenhouse 2', description: 'The main objective is to visualize in our phones a platform that monitoring and controlling' }
     ];
     this.col = this.devices.length;
   }
@@ -29,6 +30,9 @@ export class ProfileTab implements OnInit {
   }
   addDevice(){
     this.showInput=true;
+  }
+  showGraphics(){
+    this.navCtrl.push(ModalPage);
   }
 }
 
