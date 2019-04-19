@@ -15,6 +15,7 @@
                 </ion-col>
             </ion-row>
         </ion-grid>
+        <ion-grid>
         <div>
             <h2>Outside parameters</h2>
         </div>
@@ -46,21 +47,24 @@
                     </ion-row>
                 </ion-row>
             </ion-col>
+            <ion-grid>
             <ion-row>
                 <button ion-button color="grey" (click)="showGraphics()" icon-left>
                     <!--<ion-icon name="add-circle"></ion-icon>-->
                     Show Graphics
                 </button>
             </ion-row>
+        </ion-grid>
         </div>
 
+    </ion-grid>
         <ion-grid>
             <ion-row>
                 <ion-col col-12>
                     <h2>Geenhouses</h2>
                 </ion-col>
             </ion-row>
-        </ion-grid>
+        
         <div class="flex-column">
             <ion-col col-12>
                 <button ion-button class="button-greenhouse" color="grey" (click)="showGraphics()" icon-left>
@@ -79,6 +83,7 @@
                 </button>
             </ion-col>
         </div>
+    </ion-grid>
     </div>
     <!--    <ion-row *ngIf="showInput"justify-content-center>
                 <ion-list >

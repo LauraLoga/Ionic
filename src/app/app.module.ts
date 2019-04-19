@@ -13,8 +13,8 @@ import { ModalContentPage } from '../pages/modals/modals';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Welcome } from '../pages/welcome/welcome';
 
-import { Profile } from '../pages/welcome/tabs/profile';
-import { ControlTab } from '../pages/welcome/tabs/tab-control';
+import { Gardens } from '../pages/gardens/gardens';
+import { Greenhouse } from '../pages/welcome/tabs/tab-greenhouse';
 import { TabBasicContentPage } from '../pages/welcome/tabs/tab-basic';
 
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,8 +28,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ActuatorsDetailsPage,
     ModalPage,
     ModalContentPage,
-    Profile,
-    ControlTab,
+    Gardens,
+    Greenhouse,
     Welcome,
     TabBasicContentPage
   ],
@@ -47,8 +47,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ActuatorsDetailsPage,
     ModalPage,
     ModalContentPage,
-    Profile,
-    ControlTab,
+    Gardens,
+    Greenhouse,
     Welcome,
     TabBasicContentPage
   ],

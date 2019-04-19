@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { Profile } from './tabs/profile';
+import { Gardens } from '../gardens/gardens';
 
 @Component({
   selector: 'welcome', // estilo de home.scss
@@ -21,7 +21,7 @@ export class Welcome {
 
   showName(name) {
     this.storage.set('name', name)
-      .then(item => this.navCtrl.push(Profile, { item }))
+      .then(item => this.navCtrl.push(Gardens, { item }))
       .catch(() => console.log("error al guardar el usuario"));
   }
 }

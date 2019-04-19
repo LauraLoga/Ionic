@@ -7,6 +7,7 @@ import { ActuatorsPage } from '../pages/actuators/actuators';
 import { ModalPage } from '../pages/modals/modals';
 import { Welcome } from '../pages/welcome/welcome';
 import { TabBasicContentPage } from '../pages/welcome/tabs/tab-basic';
+import { Gardens} from '../pages/gardens/gardens';
 
 @Component({
   templateUrl: 'app.html'
@@ -23,10 +24,11 @@ export class Main {
 
     // used for an example of ngFor and actuators
     this.pages = [
-      { title: 'Pagina principal', component: TabBasicContentPage },
+      { title: 'Wellcome', component: Gardens },
       { title: 'List of sensors', component: SensorsPage },
       { title: 'List of actuators', component: ActuatorsPage },
-      { title: 'El señor de los anillos', component: ModalPage }
+      { title: 'El señor de los anillos', component: ModalPage },
+      { title: 'Greenhouse', component: TabBasicContentPage}
     ];
 
   }

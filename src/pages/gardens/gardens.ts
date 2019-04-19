@@ -2,12 +2,12 @@
 import { Storage } from '@ionic/storage';
 import { Component, OnInit } from '@angular/core';
 import { NavParams, NavController } from 'ionic-angular';
-import { ModalPage } from '../../modals/modals';
+import { ModalPage } from '../modals/modals';
 
 
 @Component({
-  templateUrl: 'profile.html' })
-export class Profile implements OnInit {
+  templateUrl: 'gardens.html' })
+export class Gardens implements OnInit {
   devices: Array<{ title: string; description: string }>;
   col;
   name;
