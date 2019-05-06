@@ -6,7 +6,7 @@
   </ion-header>
   <ion-content class="menu">
     <ion-list>
-      <button color= "light-purple" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+      <button color= "light-purple" menuClose ion-item class="input-signup" *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
     </ion-list>

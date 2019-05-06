@@ -1,24 +1,44 @@
 import { Component } from '@angular/core';
 import { ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
 
-
+declare var google;
 @Component({
   templateUrl: 'template.html'
 })
-export class ModalPage {
-  constructor(public modalCtrl: ModalController) { }
+export class GraphicPage {
+  time = new Date().getTime()
+  date = new Date();
 
-  openModal(characterNum) {
+  constructor(public modalCtrl: ModalController) {
+    
+   }
 
-    let modal = this.modalCtrl.create(ModalContentPage, characterNum);
-    modal.present();
+   drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Year', 'Sales', 'Expenses'],
+      ['2013',  1000,      400],
+      ['2014',  1170,      460],
+      ['2015',  660,       1120],
+      ['2016',  1030,      540]
+    ]);
+
+    var options = {
+      title: 'Company Performance',
+      hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+      vAxis: {minValue: 0}
+    };
+
+    var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
   }
+
+  
 }
 
 @Component({
-  templateUrl: 'modals.html'
+  templateUrl: 'graphics.html'
 })
-export class ModalContentPage {
+export class GraphicContentPage {
   character;
 
   constructor(

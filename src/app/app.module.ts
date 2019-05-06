@@ -8,12 +8,12 @@ import { Login } from '../pages/welcome/login/login';
 import { SensorsPage } from '../pages/sensors/sensors';
 import { ActuatorsPage } from '../pages/actuators/actuators';
 import { ActuatorsDetailsPage } from '../pages/actuators/actuators';
-import { ModalPage } from '../pages/modals/modals';
-import { ModalContentPage } from '../pages/modals/modals';
+import { GraphicPage } from '../pages/graphics/graphics';
+import { GraphicContentPage } from '../pages/graphics/graphics';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Welcome } from '../pages/welcome/welcome';
 
-import { Gardens } from '../pages/gardens/gardens';
+import { Gardens, ProblemContentPage } from '../pages/gardens/gardens';
 import { Greenhouse } from '../pages/welcome/tabs/tab-greenhouse';
 import { TabBasicContentPage } from '../pages/welcome/tabs/tab-basic';
 
@@ -26,9 +26,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SensorsPage,
     ActuatorsPage,
     ActuatorsDetailsPage,
-    ModalPage,
-    ModalContentPage,
+    GraphicPage,
+    GraphicContentPage,
     Gardens,
+    ProblemContentPage,
     Greenhouse,
     Welcome,
     TabBasicContentPage
@@ -45,9 +46,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SensorsPage,
     ActuatorsPage,
     ActuatorsDetailsPage,
-    ModalPage,
-    ModalContentPage,
+    GraphicPage,
+    GraphicContentPage,
     Gardens,
+    ProblemContentPage,
     Greenhouse,
     Welcome,
     TabBasicContentPage

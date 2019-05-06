@@ -20,10 +20,19 @@ td, {
     text-align: left; 
 }
 .button-greenhouse{
-    height: 9em;
-    width: 20em;
+    max-height: 9em;
+    max-width: 20em;
+    min-height: 6em;
+    min-width: 15em;
 }
 .icons{
     zoom: 3;
     background-color: white;
+}
+table {
+    margin-bottom: 5%;
+}
+
+ion-checkbox {
+    margin-right: 5px;
 }

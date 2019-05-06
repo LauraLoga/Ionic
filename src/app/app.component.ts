@@ -4,7 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SensorsPage } from '../pages/sensors/sensors';
 import { ActuatorsPage } from '../pages/actuators/actuators';
-import { ModalPage } from '../pages/modals/modals';
+import { GraphicPage } from '../pages/graphics/graphics';
 import { Welcome } from '../pages/welcome/welcome';
 import { TabBasicContentPage } from '../pages/welcome/tabs/tab-basic';
 import { Gardens} from '../pages/gardens/gardens';
@@ -24,10 +24,10 @@ export class Main {
 
     // used for an example of ngFor and actuators
     this.pages = [
-      { title: 'Wellcome', component: Gardens },
+      { title: 'Welcome', component: Gardens },
       { title: 'List of sensors', component: SensorsPage },
       { title: 'List of actuators', component: ActuatorsPage },
-      { title: 'El señor de los anillos', component: ModalPage },
+      { title: 'Graphics', component: GraphicPage },
       { title: 'Greenhouse', component: TabBasicContentPage}
     ];
 
