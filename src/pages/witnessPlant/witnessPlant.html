@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Witness Plant</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="witnessPlant">
+  <!--<ion-list>
+      <button ion-item *ngFor="let item of items" (click)="openNavDetailsPage(item)" icon-start>
+        <ion-icon [name]="item.icon" [ngStyle]="{'color': item.color}" item-start></ion-icon>
+        {{ item.title }}
+      </button>
+    </ion-list>-->
+  <div class="flex-container">
+    <div class="flex-column">
+      <ion-label *ngIf="!showInput">Select witness plant</ion-label>
+      <ion-select *ngIf="!showInput" interface="popover" placeholder="Select One" >
+        <ion-option value="v">View historic data</ion-option>
+        <ion-option value="a">Add new data</ion-option>
+        <ion-option value="m">Modify or delete last data</ion-option>
+      </ion-select>
+      <button ion-button class="button-greenhouse" color="grey" (click)="addDevice()">
+        <ion-icon name="add-circle"></ion-icon>
+        Create new witness plant
+      </button>
+
+
+      <ion-row *ngIf="showInput" justify-content-center>
+        <ion-list>
+          <ion-item class="input-signup" color="light-lemon">
+            <ion-input type="text" placeholder="Title">
+            </ion-input>
+          </ion-item>
+          <ion-item class="input-signup" color="light-lemon">
+            <ion-input type="text" placeholder="Description">
+            </ion-input>
+          </ion-item>
+          <button ion-button color="purple" icon-only>
+            <ion-icon name="add-circle">jhiuiu</ion-icon>
+          </button>
+        </ion-list>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>

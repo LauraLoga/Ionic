@@ -11,7 +11,6 @@ export class Gardens implements OnInit {
   devices: Array<{ title: string; description: string }>;
   col;
   name;
-  showInput = false;
   device;
   constructor(public navCtrl: NavController, public params: NavParams, private storage: Storage, public modalCtrl: ModalController) {
     /*this.devices = [
@@ -33,9 +32,7 @@ export class Gardens implements OnInit {
       this.name = val;
     });
   }
-  addDevice(){
-    this.showInput=true;
-  }
+
   showGraphics(){
     this.navCtrl.push(GraphicPage);
   }

@@ -37,6 +37,25 @@
     margin:2%;
     
 }
+ion-select {
+    max-width: 100%;
+    color: black;
+}
+.select-ios .select-placeholder {
+    color: black;
+}
+.select-md .select-placeholder {
+    color: black;
+}
+.select{
+    background-color: rgba(184, 184, 184, 0.705);
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+}
+.popover-ios .item-ios {
+    padding-left: 5px;
+}
 //.item-block {
     //margin-bottom: 3%;
     //opacity: 0.7;
@@ -73,7 +92,7 @@
     background-image: url('../assets/imgs/tomatoes.jpg');
     background-size: cover;
 }
-.actuators{
+.witnessPlant{
     background-image: url('../assets/imgs/cielo.jpg');
     background-size: cover;
 }

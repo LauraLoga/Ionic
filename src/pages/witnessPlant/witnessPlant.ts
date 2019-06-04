@@ -4,9 +4,9 @@ import { NavController, NavParams } from 'ionic-angular';
 
 
 @Component({
-  templateUrl: 'actuators-details.html',
+  templateUrl: 'witnessPlant-details.html',
 })
-export class ActuatorsDetailsPage {
+export class WitnessPlantDetailsPage {
   item;
 
   constructor(params: NavParams) {
@@ -16,11 +16,14 @@ export class ActuatorsDetailsPage {
 
 @Component({
   selector: 'page-list',
-  templateUrl: 'actuators.html'
+  templateUrl: 'witnessPlant.html'
 })
-export class ActuatorsPage {
+export class WitnessPage {
   items = [];
-
+  showInput = false;
+  v = false;
+  a = false;
+  m = false;
   constructor(public nav: NavController) {
     this.items = [
       {
@@ -55,10 +58,18 @@ export class ActuatorsPage {
       },
     
     ]
+    
   }
-
+  showOption(valueSelect){
+if (valueSelect == 'v'){
+  this.v = true;
+}
+  }
+  addDevice(){
+    this.showInput=true;
+  }
   openNavDetailsPage(item) {
-    this.nav.push(ActuatorsDetailsPage, { item: item });
+    this.nav.push(WitnessPlantDetailsPage, { item: item });
     
   }
 

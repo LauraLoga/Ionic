@@ -15,11 +15,15 @@ export class GraphicPage {
 
    drawChart() {
     var data = google.visualization.arrayToDataTable([
-      ['Year', 'Sales', 'Expenses'],
-      ['2013',  1000,      400],
-      ['2014',  1170,      460],
-      ['2015',  660,       1120],
-      ['2016',  1030,      540]
+      ['Hour', 'ºC', 'Expenses'],
+      ['11:00',  16,      400],
+      ['12:00',  17,      460],
+      ['13:00',  18,       1120],
+      ['14:00',  19,      540],
+      ['15:00',  17,      540],
+      ['16:00',  17,      540],
+      ['17:00',  18,      540],
+      ['18:00',  19,      540]
     ]);
 
     var options = {
@@ -80,6 +84,14 @@ export class GraphicContentPage {
     ];
     this.character = characters[this.params.get('charNum')];
   }
+  //URL data
+  /**
+   * 
+   * 
+   * 
+   * curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{"username":"laura.mira.torres@gmail.com", "password":"enter1!"}' 'http://hydroponics.cti.gr:8080/api/auth/login'
+   * curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{"username”:”[email]", "password”:”[password]"}' 'http://hydroponics.cti.gr:8080/api/auth/login’
+   */
 
   dismiss() {
     this.viewCtrl.dismiss();

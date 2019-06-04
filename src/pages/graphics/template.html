@@ -11,24 +11,25 @@
   <ion-grid class="transparent">
     <h2>{{date | date:'full'}}</h2>
   </ion-grid>
-  
-  <ion-list>
-    <!--ion-list-header>
-      Hobbits
-    </ion-list-header-->
-    <a ion-item (click)="drawChart()">
-      Temperature
-    </a>
-    <a ion-item (click)="drawChart()">
-      Humidity
-    </a>
-    <a ion-item (click)="drawChart()">
-      Barometric Pressure
-    </a>
-    <a ion-item (click)="drawChart()">
-      All parameters
-    </a>
-  </ion-list>
-  <div id="chart_div" style="width: 100%; height: 500px;"></div>
-
+  <div class="flex-row">
+    <ion-col col-4>
+      <ion-list>
+        <a ion-item (click)="drawChart()">
+          Temperature
+        </a>
+        <a ion-item (click)="drawChart()">
+          Humidity
+        </a>
+        <a ion-item (click)="drawChart()">
+          Barometric Pressure
+        </a>
+        <a ion-item (click)="drawChart()">
+          All parameters
+        </a>
+      </ion-list>
+    </ion-col>
+    <ion-col>
+      <div id="chart_div" style="width: 100%; height: 500px;"></div>
+    </ion-col>
+  </div>
 </ion-content>
