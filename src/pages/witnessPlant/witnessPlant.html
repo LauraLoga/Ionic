@@ -6,43 +6,157 @@
     <ion-title>Witness Plant</ion-title>
   </ion-navbar>
 </ion-header>
+<ion-icon name="close-circle-outline"></ion-icon>
+<ion-content>
+  <div class="flex-container divStyle">
 
-<ion-content class="witnessPlant">
-  <!--<ion-list>
-      <button ion-item *ngFor="let item of items" (click)="openNavDetailsPage(item)" icon-start>
-        <ion-icon [name]="item.icon" [ngStyle]="{'color': item.color}" item-start></ion-icon>
-        {{ item.title }}
-      </button>
-    </ion-list>-->
-  <div class="flex-container">
-    <div class="flex-column">
-      <ion-label *ngIf="!showInput">Select witness plant</ion-label>
-      <ion-select *ngIf="!showInput" interface="popover" placeholder="Select One" >
-        <ion-option value="v">View historic data</ion-option>
-        <ion-option value="a">Add new data</ion-option>
-        <ion-option value="m">Modify or delete last data</ion-option>
-      </ion-select>
-      <button ion-button class="button-greenhouse" color="grey" (click)="addDevice()">
-        <ion-icon name="add-circle"></ion-icon>
-        Create new witness plant
-      </button>
+    <button *ngIf="createW" ion-button class="button-greenhouse formStyle" color="grey" (click)="createWitness()">
 
+      <!--<ion-icon name="add-circle"></ion-icon>-->
+      Create new witness plant
+    </button>
+    <form class="formStyle" *ngIf="optCreateW" [formGroup]="formWitness" (ngSubmit)="create()">
+      <ion-row justify-content-center>
+        <ion-list class="formStyle">
 
-      <ion-row *ngIf="showInput" justify-content-center>
-        <ion-list>
           <ion-item class="input-signup" color="light-lemon">
-            <ion-input type="text" placeholder="Title">
-            </ion-input>
+            <ion-input type="text" placeholder="enter a name" formControlName="name"></ion-input>
           </ion-item>
+
+          <ion-item class="input-signup " color="light-lemon">
+            <select placeholder="greenhouse" formControlName="greenhouse">
+              <option value="">Select a greenhouse</option>
+              <option value="Greenhouse 1">Greenhouse 1</option>
+              <option value="Greenhouse 2">Greenhouse 2</option>
+            </select>
+          </ion-item>
+
           <ion-item class="input-signup" color="light-lemon">
-            <ion-input type="text" placeholder="Description">
-            </ion-input>
+            <select placeholder="block" formControlName="block">
+              <option value="">Select a block</option>
+              <option value="Block 1">Block 1</option>
+              <option value="Block 2">Block 2</option>
+              <option value="Block 3">Block 3</option>
+            </select>
           </ion-item>
-          <button ion-button color="purple" icon-only>
-            <ion-icon name="add-circle">jhiuiu</ion-icon>
+
+          <ion-item class="input-signup" color="light-lemon">
+            <ion-input type="number" placeholder="enter a row" formControlName="row"></ion-input>
+          </ion-item>
+          <span *ngIf="formWitness.get('row').touched 
+          && (formWitness.get('row').value == 0 
+          || formWitness.get('row').value >25)">
+            row has to be between 1 - 25
+          </span>
+
+          <ion-item class="input-signup" color="light-lemon">
+            <select formControlName="planType">
+              <option value="">Select a type of plant</option>
+              <option value="Cherry tomato"> Cherry tomato</option>
+              <option value="Salad tomato"> Salad tomato</option>
+            </select>
+          </ion-item>
+
+          <ion-item class="input-signup" color="light-lemon">
+            <ion-input type="text" placeholder="enter a description" formControlName="description"></ion-input>
+          </ion-item>
+
+
+          <button ion-button type="submit" color="light-purple" block [disabled]="formWitness.invalid">
+            Create
+          </button>
+
+          <button ion-button color="grey" block (click)="back()">
+            Dismiss
           </button>
         </ion-list>
       </ion-row>
-    </div>
+    </form>
+
+    <ion-list class="cardStyle" color="light-purple">
+      <!--<ion-icon [name]="item.name" [ngStyle]="{'color': item.color}" item-start></ion-icon>-->
+      <!--  <ion-col col-6>{{item["name"]}} {{item["greenhouse"]}}</ion-col>
+        <ion-col col-6>
+        </ion-col>-->
+      <ion-card *ngFor="let item of devices">
+        <button ion-item (click)="openNavDetailsPage(item)" icon-start>
+
+          <ion-item>
+            <h2>{{item["name"]}}</h2>
+            <p>{{item["planType"]}}</p>
+          </ion-item>
+
+
+          <ion-card-content>
+            <p>{{item["description"]}}</p>
+          </ion-card-content>
+
+          <ion-row>
+            <ion-col>
+              <button ion-button icon-start clear small>
+                <div>{{item["greenhouse"]}}</div>
+              </button>
+            </ion-col>
+            <ion-col>
+              <button ion-button icon-start clear small>
+                <div>{{item["block"]}}</div>
+              </button>
+            </ion-col>
+            <ion-col>
+              <button ion-button icon-start clear small>
+                <div>Row: {{item["row"]}}</div>
+              </button>
+            </ion-col>
+          </ion-row>
+        </button>
+        <ion-row justify-content-center>
+          <ion-col align-self-center text-center>
+            <ion-note>
+              Witness plant
+            </ion-note>
+          </ion-col>
+          <button class="iconsWitness" (click)="presentAlertConfirm(item.id)">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-row>
+      </ion-card>
+    </ion-list>
+
+    <button *ngIf="selectW" ion-button class="button-greenhouse" color="grey" (click)="selectWitness()">
+      Select witness plant
+    </button>
+    <!--
+    <article *ngIf="optSelectW">
+      <h2>
+        <span>Select witness plant:</span>
+      </h2>
+      <select (change)="selectWitnesPlant($event)">
+        <option value="">Select your option</option>
+        <option value="v"> View historic data</option>
+        <option value="a">Add new data</option>
+        <option value="m">Modify or delete last data</option>
+      </select>
+    </article>-->
+    <!--  <button ion-item  (click)="openNavDetailsPage(plant)" icon-start>
+          <ion-icon [name]="plant.Description" [ngStyle]="{'color': plant.color}" item-start></ion-icon>
+          {{ plant.title }}{{plant.description}}
+        </button> -->
+
+
+    <ion-row *ngIf="showInput" justify-content-center>
+      <ion-list>
+        <ion-item class="input-signup" color="light-lemon">
+          <ion-input type="text" placeholder="Title">
+          </ion-input>
+        </ion-item>
+        <ion-item class="input-signup" color="light-lemon">
+          <ion-input type="text" placeholder="Description">
+          </ion-input>
+        </ion-item>
+        <button ion-button color="purple" icon-only>
+          <ion-icon name="add-circle">jhiuiu</ion-icon>
+        </button>
+      </ion-list>
+    </ion-row>
   </div>
 </ion-content>

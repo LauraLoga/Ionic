@@ -37,7 +37,14 @@
     margin:2%;
     
 }
-ion-select {
+.item-select-style{
+    align-items: initial;
+    
+}
+.ion-item{
+    white-space: nowrap;
+}
+.ion-select {
     max-width: 100%;
     color: black;
 }
@@ -48,11 +55,17 @@ ion-select {
     color: black;
 }
 .select{
-    background-color: rgba(184, 184, 184, 0.705);
+    background-color: rgb(184, 184, 184);
     width: 100%;
     text-align: center;
     font-size: 20px;
+    margin-top: 20px;
+    padding: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(166, 166, 166);
 }
+  
 .popover-ios .item-ios {
     padding-left: 5px;
 }
@@ -127,7 +140,25 @@ ion-label{
 .button{
     color: black;
 }
-
+.formStyle{
+    width: 80%;
+}
+.cardStyle{
+    width: 60%;
+}
+.divStyle{
+    margin-top:10%;
+}
+.iconsAlert{
+    zoom: 3;
+    background-color: white;
+}
+.iconsWitness{
+    zoom: 1.7;
+    background-color: white;
+    color: grey;
+    z-index: 1;
+}
 /*.add-button{
     position: relative;
     left: 70%;

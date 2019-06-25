@@ -15,6 +15,7 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'app.html'
 })
 export class Main {
+  static ids: any;
   @ViewChild(Nav) nav: Nav; //primera pag cargada en nav controller
 
   rootPage: any = Welcome;
@@ -22,7 +23,9 @@ export class Main {
   pages: Array<{ title: string, component: any }>;
   token;
   rtoken;
+  ids= [];
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private http: HttpClient, private storage: Storage) {
+
     this.initializeApp();
 
     // used for an example of ngFor and witnessPlant
@@ -43,15 +46,11 @@ export class Main {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      //obtain the access token
+/*      //obtain the access token
       //store the access token to some variable
       //check that we can connect successfully
       //keep token in local storage
-
-
-
-      //let obs = this.http.get('http://hydroponics.cti.gr:8080/swagger-ui.html#!/device-controller/getDeviceByIdUsingGET');
-      //let heads: HttpHeaders = new HttpHeaders();
+// to get token from terminal paste: curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{"username":"laura.mira.torres@gmail.com", "password":"enter1!"}' 'http://hydroponics.cti.gr:8080/api/auth/login'
       heads = heads.append('Content-Type', 'application/json');
       heads = heads.append('Accept', 'application/json');
       let obs = this.http.post(
@@ -61,33 +60,41 @@ export class Main {
           headers: heads
         });
       obs.subscribe((response) => {
-        this.token = response.token;
-        this.rtoken = response.refreshToken;
+        this.token = response["token"];
+        this.rtoken = response["refreshToken"];
         this.storage.set('token', this.token);
         this.storage.set('rtoken', this.rtoken);
-        //console.log(tokens.refreshToken)
       });
-
-
 
       // check the token works
       //local variable
       // let heads: HttpHeaders = new HttpHeaders();
       this.storage.get('token').then((val) => {
+        let heads: HttpHeaders = new HttpHeaders();
         this.token = val;
-        console.log('token in storage' + this.token);
+        console.log('token in storage \n' + this.token);
         heads = heads.append('Content-Type', 'application/json');
         heads = heads.append('Accept', 'application/json');
         heads = heads.append('X-Authorization', 'Bearer: ' + this.token);
-        let gr = this.http.get("http://hydroponics.cti.gr:8080/api/device/90992200-81fb-11e9-8ecf-0b17ece5b734");
-        gr.subscribe((response) => {
-          this.token = response.token;
-          console.log(response);
-        });
-      });
+        this.http.get('http://hydroponics.cti.gr:8080/api/device/90992200-81fb-11e9-8ecf-0b17ece5b734',
+          {                                                                   //post headers
+            headers: {
+              'Access-Control-Allow-Origin': '*',
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+              'X-Authorization':
+                'Bearer: ' + this.token
+            }
+          }).subscribe(data => {
+            console.log('data:' + JSON.stringify(data));
+            this.ids.push(data["id"]["id"]);
+            this.storage.set('ids', this.ids);
+            console.log('id:' + this.ids);
+          });
+      });*/
     });
-  }
 
+  }
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
