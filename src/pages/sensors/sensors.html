@@ -9,17 +9,17 @@
 
 <ion-content class = "sensors">
   <ion-list color="light-purple">
-    <button ion-item *ngFor="let sensor of sensorsList" (click)="itemTapped($event, sensor)">
-        <ion-col col-6>
+    <button ion-item *ngFor="let sensor of sensorsList">
+        <ion-col col-3>
       <ion-icon [name]="sensor.icon" [ngStyle]="{'color': sensor.color}" item-start></ion-icon>
       {{sensor.title}}
+    </ion-col>
+    <ion-col col-3 class="item-note" item-end>
+      {{sensor.unity}}
     </ion-col>
       <ion-col col-6 class="item-note" item-end>
         {{sensor.note}}
       </ion-col>
     </button>
   </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
 </ion-content>

@@ -22,33 +22,39 @@
           <ion-item class="input-signup" color="light-lemon">
             <ion-input type="text" placeholder="enter a name" formControlName="name"></ion-input>
           </ion-item>
-
-          <ion-item class="input-signup " color="light-lemon">
-            <select placeholder="greenhouse" formControlName="greenhouse">
-              <option value="">Select a greenhouse</option>
-              <option value="Greenhouse 1">Greenhouse 1</option>
-              <option value="Greenhouse 2">Greenhouse 2</option>
-            </select>
-          </ion-item>
-
-          <ion-item class="input-signup" color="light-lemon">
-            <select placeholder="block" formControlName="block">
-              <option value="">Select a block</option>
-              <option value="Block 1">Block 1</option>
-              <option value="Block 2">Block 2</option>
-              <option value="Block 3">Block 3</option>
-            </select>
-          </ion-item>
-
-          <ion-item class="input-signup" color="light-lemon">
-            <ion-input type="number" placeholder="enter a row" formControlName="row"></ion-input>
-          </ion-item>
-          <span *ngIf="formWitness.get('row').touched 
+          <ion-row>
+            <ion-col col-4>
+              <ion-item class="input-signup " color="light-lemon">
+                <select placeholder="greenhouse" formControlName="greenhouse">
+                  <option value="">Greenhouse</option>
+                  <option value="Greenhouse 1">Greenhouse 1</option>
+                  <option value="Greenhouse 2">Greenhouse 2</option>
+                </select>
+              </ion-item>
+            </ion-col>
+            <ion-col col-4>
+              <ion-item class="input-signup" color="light-lemon">
+                <select placeholder="block" formControlName="block">
+                  <option value="">Select block</option>
+                  <option value="Block 1">Block 1</option>
+                  <option value="Block 2">Block 2</option>
+                  <option value="Block 3">Block 3</option>
+                </select>
+              </ion-item>
+            </ion-col>
+            <ion-col col-4>
+              <ion-item class="input-signup" color="light-lemon">
+                <ion-input type="number" placeholder="enter row" formControlName="row"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-4>
+              <span *ngIf="formWitness.get('row').touched 
           && (formWitness.get('row').value == 0 
           || formWitness.get('row').value >25)">
-            row has to be between 1 - 25
-          </span>
-
+                row has to be between 1 - 25
+              </span>
+            </ion-col>
+          </ion-row>
           <ion-item class="input-signup" color="light-lemon">
             <select formControlName="planType">
               <option value="">Select a type of plant</option>
@@ -60,7 +66,6 @@
           <ion-item class="input-signup" color="light-lemon">
             <ion-input type="text" placeholder="enter a description" formControlName="description"></ion-input>
           </ion-item>
-
 
           <button ion-button type="submit" color="light-purple" block [disabled]="formWitness.invalid">
             Create
@@ -82,81 +87,54 @@
         <button ion-item (click)="openNavDetailsPage(item)" icon-start>
 
           <ion-item>
-            <h2>{{item["name"]}}</h2>
-            <p>{{item["planType"]}}</p>
+            <h1>{{item.name}}</h1>
+            <p>{{item.planType}}</p>
           </ion-item>
 
 
-          <ion-card-content>
-            <p>{{item["description"]}}</p>
+          <ion-card-content *ngIf = "formWitness.get('description').value!=undefined">
+            <p>{{item["additionalInfo"]["description"]\n}}</p>
           </ion-card-content>
-
-          <ion-row>
-            <ion-col>
-              <button ion-button icon-start clear small>
-                <div>{{item["greenhouse"]}}</div>
-              </button>
-            </ion-col>
-            <ion-col>
-              <button ion-button icon-start clear small>
-                <div>{{item["block"]}}</div>
-              </button>
-            </ion-col>
-            <ion-col>
-              <button ion-button icon-start clear small>
-                <div>Row: {{item["row"]}}</div>
-              </button>
-            </ion-col>
-          </ion-row>
         </button>
+        <button *ngIf="item.state ==1" class="iconsAlert">
+          <ion-icon name="alert" color="danger" (click)="openModal({item: item})"></ion-icon>
+          <!--ion-icon name="alert" color="danger" (click)="openModal({greenhouseId: 0})"></ion-icon-->
+        </button>
+        <button *ngIf="item.state ==0" class="iconsAlert">
+          <ion-icon name="checkmark-circle" color="secondary"></ion-icon>
+        </button>
+
+
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-start clear small>
+              <div>{{item["additionalInfo"]["greenhouse"]}}</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-start clear small>
+              <div>{{item["additionalInfo"]["block"]}}</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-start clear small>
+              <div>Row: {{item["additionalInfo"]["row"]}}</div>
+            </button>
+          </ion-col>
+        </ion-row>
+
         <ion-row justify-content-center>
           <ion-col align-self-center text-center>
             <ion-note>
               Witness plant
             </ion-note>
           </ion-col>
-          <button class="iconsWitness" (click)="presentAlertConfirm(item.id)">
+          <button class="iconsWitness" (click)="presentAlertConfirm(item)">
             <ion-icon name="trash"></ion-icon>
           </button>
         </ion-row>
       </ion-card>
     </ion-list>
 
-    <button *ngIf="selectW" ion-button class="button-greenhouse" color="grey" (click)="selectWitness()">
-      Select witness plant
-    </button>
-    <!--
-    <article *ngIf="optSelectW">
-      <h2>
-        <span>Select witness plant:</span>
-      </h2>
-      <select (change)="selectWitnesPlant($event)">
-        <option value="">Select your option</option>
-        <option value="v"> View historic data</option>
-        <option value="a">Add new data</option>
-        <option value="m">Modify or delete last data</option>
-      </select>
-    </article>-->
-    <!--  <button ion-item  (click)="openNavDetailsPage(plant)" icon-start>
-          <ion-icon [name]="plant.Description" [ngStyle]="{'color': plant.color}" item-start></ion-icon>
-          {{ plant.title }}{{plant.description}}
-        </button> -->
-
-
-    <ion-row *ngIf="showInput" justify-content-center>
-      <ion-list>
-        <ion-item class="input-signup" color="light-lemon">
-          <ion-input type="text" placeholder="Title">
-          </ion-input>
-        </ion-item>
-        <ion-item class="input-signup" color="light-lemon">
-          <ion-input type="text" placeholder="Description">
-          </ion-input>
-        </ion-item>
-        <button ion-button color="purple" icon-only>
-          <ion-icon name="add-circle">jhiuiu</ion-icon>
-        </button>
-      </ion-list>
-    </ion-row>
   </div>
 </ion-content>

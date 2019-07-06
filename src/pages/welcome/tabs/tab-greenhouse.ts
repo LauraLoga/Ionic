@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
 
 
   @Component({
@@ -9,12 +9,20 @@ import { NavController, NavParams } from 'ionic-angular';
   })
   export class Greenhouse {
     value;
-    constructor(public navCtrl: NavController, params: NavParams) {
-      this.value = params;
-      console.log('params from UserProfilePage', this.value); // there is no data
+    greenH;
+    info = false;
+    data;
+    constructor(public navCtrl: NavController, params: NavParams, private alertCtrl: AlertController, public modalCtrl: ModalController) {
+      //this.value = params.data.item;
+      //this.greenH = params.data.greenHs;
+      //this.data = this.greenH[this.value];
+      //console.log('params from UserProfilePage', this.greenH); // there is no data
   
     }
     ngOnInit(): void {
 
+    }
+    showInfo(){
+      this.info=true;
     }
   }

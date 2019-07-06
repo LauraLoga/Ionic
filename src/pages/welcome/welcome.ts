@@ -10,7 +10,6 @@ import { Gardens } from '../gardens/gardens';
 })
 export class Welcome {
   showButtonStarted = true;
-
   constructor(public navCtrl: NavController, public params: NavParams, private storage: Storage) {
 
   }

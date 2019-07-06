@@ -14,12 +14,14 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
 .flex-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
+
   .flex-row {
     display: flex;
     justify-content: center;
@@ -69,13 +71,11 @@
 .popover-ios .item-ios {
     padding-left: 5px;
 }
-//.item-block {
-    //margin-bottom: 3%;
-    //opacity: 0.7;
-//}
 .input-signup{
-    opacity: 0.7;
+    opacity: 0.8;
     margin-bottom: 5%;
+
+    display: content;
 }
 .button-close{
     opacity:0.4;
@@ -90,7 +90,7 @@
     text-align: center;
 }
 .menu{
-    background-image: url('../assets/imgs/guisantes.jpg');
+    background-image: url('../assets/imgs/tomatoes.jpg');
     background-size: cover;
 }
 .profile{
@@ -134,6 +134,7 @@ ion-label{
     background-color:#f0f4c3;
     opacity: 0.5;
 }
+
 .h1{
     background: color($colors, light-purple);
 }
@@ -147,7 +148,13 @@ ion-label{
     width: 60%;
 }
 .divStyle{
-    margin-top:10%;
+    margin-top:5%;
+}
+@media only screen and (max-width: 500px) {
+    .transparent{
+      
+    margin-bottom: 5%;
+    }
 }
 .iconsAlert{
     zoom: 3;

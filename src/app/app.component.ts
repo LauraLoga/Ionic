@@ -30,11 +30,11 @@ export class Main {
 
     // used for an example of ngFor and witnessPlant
     this.pages = [
-      { title: 'Welcome', component: Gardens },
+      { title: 'Gardens', component: Gardens },
       { title: 'List of sensors', component: SensorsPage },
       { title: 'Witness plant', component: WitnessPage },
-      { title: 'Graphics', component: GraphicPage },
-      { title: 'Greenhouse', component: TabBasicContentPage }
+     // { title: 'Graphics', component: GraphicPage },
+      { title: 'Greenhouses', component: TabBasicContentPage }
     ];
 
   }

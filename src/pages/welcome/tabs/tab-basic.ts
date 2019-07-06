@@ -5,19 +5,22 @@ import { NavParams } from 'ionic-angular';
 @Component({
     template: `
       <ion-tabs class="tabs-basic">
-      <ion-tab [root]="one" (ionSelect)="onClick1()" tabTitle="Greenhouse 1{{value}}" [rootParams]="value"  tabIcon="person"></ion-tab>
-      <ion-tab [root]="two" (ionSelect)="onClick2()" tabTitle="Greenhouse 2" [rootParams]="value" tabIcon="options"></ion-tab>
+      <ion-tab [root]="one" (ionSelect)="onClick1()" tabTitle="Greenhouse 1" [rootParams]="outParam"  tabIcon="leaf"></ion-tab>
+      <ion-tab [root]="two" (ionSelect)="onClick2()" tabTitle="Greenhouse 2" [rootParams]="value" tabIcon="leaf"></ion-tab>
       </ion-tabs>
   `})
   export class TabBasicContentPage implements OnInit {
     @Output() tab = new EventEmitter();
     one = Greenhouse;
     two = Greenhouse;
+    outParam;
     value;
     
     constructor(public params: NavParams) { 
       this.value = params;
       console.log('params from login', this.value);
+      this.outParam = this.params.get('outParam');
+      console.log(this.outParam);
      }
   
     ngOnInit(): void {

@@ -19,38 +19,30 @@
             <h2>Outside parameters</h2>
         </div>
         <div class="flex-row">
-            <ion-col col-8>
+            <ion-col col-12>
                 <table>
                     <tbody>
-                        <tr>
-                            <td>Temperature</td>
-                            <td>17 ºC</td>
+                        <tr *ngFor="let item of outParam">
+                            <td>{{item.name}}</td>
+                            <td>{{item.value}}</td>
                         </tr>
-                        <tr>
-                            <td>Humidity</td>
-                            <td>20 %</td>
-                        </tr>
-                        <tr>
-                            <td>Barometric Pressure</td>
-                            <td>16 Kpa</td>
-                        </tr>
-                        <tr>
-                            <td>Ambient Light</td>
-                            <td>40 Lux</td>
+                        <tr *ngFor="let item of outParamOptional" >
+                            <td>{{item.name}}</td>
+                            <td>{{item.value}}</td>
                         </tr>
                     </tbody>
                 </table>
                 <ion-row>
-                    <ion-checkbox checked="false"></ion-checkbox> Show more prameters
+                    <ion-checkbox (click)="onChange()" checked="false"></ion-checkbox> Show more prameters
                 </ion-row>
             </ion-col>
 
-            <ion-row>
-                <button ion-button color="grey" (click)="showGraphics()" icon-left>
-                    <!--<ion-icon name="add-circle"></ion-icon>-->
+            <!--ion-row>
+                <button id="check" ion-button color="grey" (click)="showGraphics()" icon-left>
+                    
                     Show Graphics
                 </button>
-            </ion-row>
+            </ion-row>-->
 
         </div>
 
@@ -63,19 +55,15 @@
         </ion-row>
 
         <div class="flex-column">
-            <ion-col col-12>
-                <button ion-button class="button-greenhouse" color="grey" (click)="showGraphics()" icon-left>
-                    Show Graphics
+            <ion-col *ngFor="let item of greenHs" col-12>
+                <button ion-button class="button-greenhouse" color="grey" (click)="showGreenh(item.id)" icon-left>
+                    Greenhouse {{item.id}}
                 </button>
-                <button class="iconsAlert">
-                    <ion-icon name="alert" color="danger" (click)="openModal({greenhouseId: 0})"></ion-icon>
+                <button *ngIf="item.state ==1" class="iconsAlert">
+                    <ion-icon name="alert" color="danger" (click)="openModal({item: item})"></ion-icon>
+                    <!--ion-icon name="alert" color="danger" (click)="openModal({greenhouseId: 0})"></ion-icon-->
                 </button>
-            </ion-col>
-            <ion-col>
-                <button ion-button class="button-greenhouse" color="grey" (click)="showGraphics()" icon-left>
-                    Show Graphics
-                </button>
-                <button class="iconsAlert">
+                <button *ngIf="item.state ==0" class="iconsAlert">
                     <ion-icon name="checkmark-circle" color="secondary"></ion-icon>
                 </button>
             </ion-col>

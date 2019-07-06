@@ -16,13 +16,13 @@
     <ion-list>
         <ion-item>
           <ion-avatar item-start>
-            <img src="{{character.image}}">
+            <img src="{{problem.image}}">
           </ion-avatar>
-          <h2>{{character.name}}</h2>
-          <p>{{character.quote}}</p>
+          <h2>{{problem.name}}</h2>
+          <p>{{problem.quote}}</p>
         </ion-item>
   
-        <ion-item *ngFor="let item of character['items']">
+        <ion-item *ngFor="let item of problem.items">
           {{item.title}}
           <ion-note item-end>
             {{item.note}}
