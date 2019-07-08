@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component} from '@angular/core';
 import { ModalController, NavController, NavParams } from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
@@ -14,10 +14,15 @@ export class WitnessPlantDetailsPage {
   device;
   inputs=[];
   attributes=[];
+  attributesAux=[];
   token;
   upDev;
   updateform = false;
   addbutton = true;
+  object = {
+    key: "",
+    value: ""
+  }
   formUpdate: FormGroup;
   constructor(params: NavParams, private http: HttpClient, private storage: Storage, private _formBuilder: FormBuilder, private alertCtrl: AlertController, public modalCtrl: ModalController) {
     this.item = params.data.item;
@@ -32,26 +37,29 @@ this.initializeApp();
     
   }
   initializeApp(){
+    this.storage.get('atr').then((val) => {
+      this.attributes = val;
+    });
     this.storage.get('token').then((val) => {
       let heads: HttpHeaders = new HttpHeaders();
       this.token = val;
       
-    let url = "http://hydroponics.cti.gr:8080/api/plugins/telemetry/DEVICE/"+this.item["id"]["id"]+"/values/attributes/SHARED_SCOPE";
-    //let url = 'http://hydroponics.cti.gr:8080/api/tenant/devices?type=Witness%20Plant&limit=10';
+  //  let url = "http://hydroponics.cti.gr:8080/api/plugins/telemetry/DEVICE/"+this.item["id"]["id"]+"/values/attributes/SHARED_SCOPE";
+    let url = 'http://hydroponics.cti.gr:8080/api/plugins/telemetry/DEVICE/'+this.item["id"]["id"]+'/values/timeseries';
 
     this.http.get(url,
       {                                                                   //post headers
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json',
-          'Accept': 'application/json',
+          'Accept': '*/*',
           'X-Authorization':
             'Bearer: ' + this.token
         }
       }).subscribe(data => {
        
-        console.log(data.length);
-        for(let i=0; i<data.length; i++){
+        console.log(data["length"]);
+        for(let i=0; i<data["length"]; i++){
           console.log(data[i]);
          
          this.attributes.push(data[i]);
@@ -75,14 +83,31 @@ this.initializeApp();
   }
   updateWitness() {
     this.storage.get('token').then((val) => {
-      //this.device = this.device.extend(this.formUpdate.value;
-      console.log(this.formUpdate.value);
-      console.log('device after add');
-      console.log(JSON.stringify(this.device));
-      this.attributes.push(this.formUpdate.value)
+      let key = this.formUpdate.value.key;
+      let value = this.formUpdate.value.value;
+      console.log(this.object);
+      this.object.key=key;
+      this.object.value=value;
+      console.log(this.object);
+      console.log(this.attributes);
+      this.attributes.push(this.object);
+      this.storage.set('atr',this.attributes);
+      let attrs = '{"'+key+'":"'+value+'"}';
+      console.log(JSON.parse(attrs));
+      this.attributesAux.push(JSON.parse(attrs))
+      console.log(this.attributesAux.values);
+      
+      let alert = this.alertCtrl.create({
+        subTitle: 'Witness plant updated'
+      });
+      alert.present();
+      setTimeout(() => {
+        alert.dismiss();
+      }, 2000);
       this.token = val;
-      let url = 'http://hydroponics.cti.gr:8080/api/plugins/telemetry/DEVICE/' + this.item.id["id"] + '/timeseries/SHARED_SCOPE';
-      this.http.post(url, this.formUpdate.value, {                                                                   //post headers
+      let url = 'http://hydroponics.cti.gr:8080/api/plugins/telemetry/' + this.item.id["id"] + '/SHARED_SCOPE';
+     // let url = 'http://hydroponics.cti.gr:8080/api/plugins/telemetry/DEVICE/' + this.item.id["id"] + '/timeseries/SHARED_SCOPE';
+      this.http.post(url, this.attributesAux.values, {                                                                   //post headers
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json',
@@ -162,7 +187,6 @@ export class WitnessPage {
         this.token = response["token"];
         this.rtoken = response["refreshToken"];
         this.storage.set('token', this.token);
-        this.storage.set('rtoken', this.rtoken);
     });
     //'http://hydroponics.cti.gr:8080/api/tenant/devices{?type,textSearch,idOffset,textOffset,limit}&limit=10'
     this.storage.get('token').then((val) => {
@@ -227,6 +251,7 @@ export class WitnessPage {
     this.storage.get('token').then((val) => {
       this.token = val;
       let url = 'http://hydroponics.cti.gr:8080/api/device';
+      
       this.http.post(url, auxDev, {                                                                   //post headers
         headers: {
           'Access-Control-Allow-Origin': '*',

@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content class = "sensors">
-  <ion-list color="light-purple">
+  <ion-list color="light-purple" *ngFor="let sensor of sensorsList">
     <button ion-item *ngFor="let sensor of sensorsList">
         <ion-col col-3>
       <ion-icon [name]="sensor.icon" [ngStyle]="{'color': sensor.color}" item-start></ion-icon>

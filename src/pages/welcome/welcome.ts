@@ -21,6 +21,6 @@ export class Welcome {
   showName(name) {
     this.storage.set('name', name)
       .then(item => this.navCtrl.push(Gardens, { item }))
-      .catch(() => console.log("error al guardar el usuario"));
+     // .catch(() => console.log("error al guardar el usuario"));
   }
 }

@@ -26,7 +26,7 @@
                             <td>{{item.name}}</td>
                             <td>{{item.value}}</td>
                         </tr>
-                        <tr *ngFor="let item of outParamOptional" >
+                        <tr *ngFor="let item of outParamOptional">
                             <td>{{item.name}}</td>
                             <td>{{item.value}}</td>
                         </tr>
@@ -36,14 +36,6 @@
                     <ion-checkbox (click)="onChange()" checked="false"></ion-checkbox> Show more prameters
                 </ion-row>
             </ion-col>
-
-            <!--ion-row>
-                <button id="check" ion-button color="grey" (click)="showGraphics()" icon-left>
-                    
-                    Show Graphics
-                </button>
-            </ion-row>-->
-
         </div>
 
 
@@ -61,7 +53,6 @@
                 </button>
                 <button *ngIf="item.state ==1" class="iconsAlert">
                     <ion-icon name="alert" color="danger" (click)="openModal({item: item})"></ion-icon>
-                    <!--ion-icon name="alert" color="danger" (click)="openModal({greenhouseId: 0})"></ion-icon-->
                 </button>
                 <button *ngIf="item.state ==0" class="iconsAlert">
                     <ion-icon name="checkmark-circle" color="secondary"></ion-icon>
@@ -70,11 +61,4 @@
         </div>
 
     </div>
-
-    <!-- <ion-card *ngFor="let device of devices" color="light-purple">
-                <ion-card-content>
-                <h1>{{device.title}}</h1>
-                <p>{{device.description}}</p>
-            </ion-card-content>
-        </ion-card>-->
 </ion-content>

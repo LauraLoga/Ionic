@@ -15,8 +15,6 @@ import { Welcome } from '../pages/welcome/welcome';
 
 import { Gardens, ProblemContentPage } from '../pages/gardens/gardens';
 import { Greenhouse } from '../pages/welcome/tabs/tab-greenhouse';
-import { TabBasicContentPage } from '../pages/welcome/tabs/tab-basic';
-
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpClientModule} from  '@angular/common/http';
 
@@ -33,7 +31,6 @@ import { HttpClientModule} from  '@angular/common/http';
     ProblemContentPage,
     Greenhouse,
     Welcome,
-    TabBasicContentPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +51,6 @@ import { HttpClientModule} from  '@angular/common/http';
     ProblemContentPage,
     Greenhouse,
     Welcome,
-    TabBasicContentPage,
   ],
   providers: [
     StatusBar,

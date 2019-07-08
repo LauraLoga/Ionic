@@ -3,39 +3,32 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Greenhouse 1</ion-title>
-        <!-- value["data"]-->
+        <ion-title>Greenhouse {{id}}</ion-title>
     </ion-toolbar>
 </ion-header>
 <ion-content color="dark-green">
-    <div class="flex-container">
+    <div class="flex-container" >
         <h2>Info about Greenhouse
             <button class="iconsAlert" (click)="showInfo()">
                 <ion-icon name="information-circle"></ion-icon>
             </button>
         </h2>
+        <table *ngIf="info">
+                <tbody>
+                    <tr *ngFor = "let item of greenHs[id-1].info">
+                            <td>{{item.name}}</td>
+                            <td>{{item.value}}</td>
+                </tbody>
+            </table>
         <h2>Currently parameters</h2>
         <div class="flex-row">
             <ion-col>
                 <h3>Inside</h3>
                 <table>
                     <tbody>
-                        <tr>
-                            <td>Temperature</td>
-                            <td>20 ºC</td>
-                        </tr>
-                        <tr>
-                            <td>Humidity</td>
-                            <td>40 %</td>
-                        </tr>
-                        <tr>
-                            <td>Barometric Pressure</td>
-                            <td>20 Kpa</td>
-                        </tr>
-                        <tr>
-                            <td>Ambient Light</td>
-                            <td>50 Lux</td>
-                        </tr>
+                        <tr *ngFor = "let item of greenHs[id-1].insideParam">
+                                <td>{{item.name}}</td>
+                                <td>{{item.value}}</td>
                     </tbody>
                 </table>
             </ion-col>
@@ -47,132 +40,33 @@
                             <td>{{item.name}}</td>
                             <td>{{item.value}}</td>
                         </tr>
-                        <tr>
-                            <td>Humidity</td>
-                            <td>20 %</td>
-                        </tr>
-                        <tr>
-                            <td>Barometric Pressure</td>
-                            <td>16 Kpa</td>
-                        </tr>
-                        <tr>
-                            <td>Ambient Light</td>
-                            <td>40 Lux</td>
-                        </tr>
                     </tbody>
                 </table>
             </ion-col>
         </div>
-        <h2>Geenhouses</h2>
+        <h2>Blocks</h2>
         <div class="flex-row">
-            <ion-col>
+            <ion-col *ngFor = "let item of greenHs[id-1].blocks">
 
-                <button ion-button class="button-greenhouse" color="grey" (click)="showGraphics()" icon-left>
-                    Block 1
+                <button ion-button class="button-greenhouse" color="grey" icon-left>
+                    Block {{item.idBlock}}
                 </button>
                 <ion-row justify-content-center>
                     <button class="iconsAlert">
-                        <ion-icon name="alert" color="danger"></ion-icon>
+                        <ion-icon *ngIf= "item.state==1" name="alert" color="danger" (click)="openModal({item: item})" ></ion-icon>
+                        <ion-icon *ngIf= "item.state==0" name="checkmark-circle" color="secondary"></ion-icon>
                     </button>
                 </ion-row>
             </ion-col>
-            <ion-col>
-                <button ion-button class="button-greenhouse" color="grey" (click)="showGraphics()" icon-left>
-                    Block 2
-                </button>
-                <ion-row justify-content-center>
-                    <button class="iconsAlert">
-                        <ion-icon name="checkmark-circle" color="secondary"></ion-icon>
-                    </button>
-                </ion-row>
-            </ion-col>
-            <ion-col>
-                <button ion-button class="button-greenhouse" color="grey" (click)="showGraphics()" icon-left>
-                    Block 3
-                </button>
-                <ion-row justify-content-center>
-                    <button class="iconsAlert">
-                        <ion-icon name="checkmark-circle" color="secondary"></ion-icon>
-                    </button>
-                </ion-row>
-            </ion-col>
+            
         </div>
     </div>
+    <ion-segment [(ngModel)]="id">
+            <ion-segment-button value="1"> 
+              Greenhouse 1
+            </ion-segment-button>
+            <ion-segment-button value="2">
+              Greenhouse 2
+            </ion-segment-button>
+          </ion-segment>
 </ion-content>
-
-
-<!--<ion-content color="dark-green">
-        <div class="flex-container">
-            <ion-grid class="transparent">
-                <ion-row>
-                    <ion-col col-12>
-                        <h2>Welcome to the app {{name}}</h2>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
-            <div>
-                <h2>Outside parameters</h2>
-            </div>
-            <div class="flex-row">
-                <ion-col col-8>
-                    <ion-row>
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td>Temperature</td>
-                                    <td>17 ºC</td>
-                                </tr>
-                                <tr>
-                                    <td>Humidity</td>
-                                    <td>20 %</td>
-                                </tr>
-                                <tr>
-                                    <td>Barometric Pressure</td>
-                                    <td>16 Kpa</td>
-                                </tr>
-                                <tr>
-                                    <td>Ambient Light</td>
-                                    <td>40 Lux</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <ion-row>
-                            <ion-checkbox checked="false"></ion-checkbox>Show more prameters
-                        </ion-row>
-                    </ion-row>
-                </ion-col>
-                <ion-row>
-                    <button ion-button color="grey" (click)="showGraphics()" icon-left>
-                        
-                        Show Graphics
-                    </button>
-                </ion-row>
-            </div>
-    
-            <ion-grid>
-                <ion-row>
-                    <ion-col col-12>
-                        <h2>Geenhouses</h2>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
-            <div class="flex-column">
-                <ion-col col-12>
-                    <button ion-button class="button-greenhouse" color="grey" (click)="showGraphics()" icon-left>
-                        Show Graphics
-                    </button>
-                    <button class="icons">
-                        <ion-icon name="alert" color="danger"></ion-icon>
-                    </button>
-                </ion-col>
-                <ion-col>
-                    <button ion-button class="button-greenhouse" color="grey" (click)="showGraphics()" icon-left>
-                        Show Graphics
-                    </button>
-                    <button class="icons">
-                        <ion-icon name="checkmark-circle" color="secondary"></ion-icon>
-                    </button>
-                </ion-col>
-            </div>
-        </div>
-    </ion-content>-->

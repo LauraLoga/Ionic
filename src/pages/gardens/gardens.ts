@@ -1,9 +1,7 @@
 
 import { Storage } from '@ionic/storage';
 import { Component, OnInit } from '@angular/core';
-import { ModalController, NavParams, NavController, ViewController, Item } from 'ionic-angular';
-import { GraphicPage } from '../graphics/graphics';
-import { TabBasicContentPage } from '../welcome/tabs/tab-basic';
+import { ModalController, NavParams, NavController, ViewController } from 'ionic-angular';
 import { Greenhouse } from '../welcome/tabs/tab-greenhouse';
 
 
@@ -43,51 +41,67 @@ export class Gardens implements OnInit {
     }
     this.row = {
       "state": 1,
-      "idRow": 0,
+      "idRow": 1,
       "sensors": [this.sensor],
       "plants": [this.plant]
-    };
-    this.block = {
-      "idBlock": 0,
-      "state": 1,
-      "rows": [this.row],
     };
     this.greenHs = [{
       "id": 1,
       "state": 0,
-      "info": {
-        "numBlocks": 3,
-        "numRows": 75,
-        "numRowsBlock": 25,
-        "gSize": "600 m²",
-        "bSize": "200 m²",
-      },
-      "insideParam": {
-        "temperature": "",
-        "humidity": "",
-        "CO2": "",
-        "Solar Radiation": ""
-      },
-      "blocks": [this.block]
+      "info": [
+        { "name": "Number of blocks", "value": 3 },
+        { "name": "Number of rows", "value": 75 },
+        { "name": "Number of rows per block", "value": 25 },
+        { "name": "Size of greenhouse", "value": "600 m²" },
+        { "name": "Size of block", "value": "200 m²" },
+      ],
+      "insideParam": [
+        { "name": "temperature", "value": "20 ºC" },
+        { "name": "humidity", "value": "40 %" },
+        { "name": "CO2", "value": "20 Kpa" },
+        { "name": "Solar Radiation", "value": "50 Lux" }
+      ],
+      "blocks": [{
+        "idBlock": 1,
+        "state": 0,
+        "rows": [this.row],
+      }, {
+        "idBlock": 2,
+        "state": 0,
+        "rows": [this.row],
+      }, {
+        "idBlock": 3,
+        "state": 0,
+        "rows": [this.row],
+      }]
     },
     {
       "id": 2,
       "state": 1,
 
-      "info": {
-        "numBlocks": 2,
-        "numRows": 50,
-        "numRowsBlock": 25,
-        "gSize": "400 m²",
-        "bSize": "200 m²",
+      "info": [
+        { "name": "Number of blocks", "value": 2 },
+        { "name": "Number of rows", "value": 50 },
+        { "name": "Number of rows per block", "value": 25 },
+        { "name": "Size of greenhouse", "value": "400 m²" },
+        { "name": "Size of block", "value": "200 m²" },
+      ],
+      "insideParam": [
+        { "name": "Temperature", "value": "25 ºC" },
+        { "name": "Humidity", "value": "42 %" },
+        { "name": "CO2", "value": "21 Kpa" },
+        { "name": "Solar Radiation", "value": "60 Lux" }
+      ],
+      "blocks": [{
+        "idBlock": 1,
+        "state": 1,
+        "rows": [this.row],
       },
-      "insideParam": {
-        "temperature": "",
-        "humidity": "",
-        "CO2": "",
-        "Solar Radiation": ""
-      },
-      "blocks": [this.block]
+      {
+        "idBlock": 2,
+        "state": 0,
+        "rows": [this.row],
+      }]
     }];
 
   }
@@ -101,14 +115,10 @@ export class Gardens implements OnInit {
     });
 
   }
-
-  showGraphics() {
-    this.navCtrl.push(GraphicPage);
-  }
   showGreenh(item) {
-    this.navCtrl.push(TabBasicContentPage, {item: item, greenHs:this.greenHs, outParam: this.outParam});
+    this.navCtrl.push(Greenhouse, { id: item, greenHs: this.greenHs, outParam: this.outParam });
   }
-  
+
   /*openNavDetailsPage(item) {
     this.nav.push(WitnessPlantDetailsPage, { item: item });
 
@@ -135,6 +145,8 @@ export class ProblemContentPage {
   greenH;
   problem;
   problems;
+  block;
+  greenh;
   constructor(
     public params: NavParams,
     public viewCtrl: ViewController
@@ -147,10 +159,15 @@ export class ProblemContentPage {
       "param": "no problem",
       "plant": "no problem"
     };
+    if (this.params.get('block') != undefined) {
+      //this.block = this.params.get('block');
+      this.greenH = this.params.get('greenh');
 
-    console.log(this.params.get('item'));
-    this.greenH = this.params.get('item');
-
+    }
+    else {
+      this.greenH = this.params.get('item');
+      console.log(this.params.get('item'));
+    }
     this.problems.greenhouse = this.greenH.id
     for (let i = 0; i < this.greenH.blocks.length; i++) {
       if (this.greenH.blocks[i].state == 1) {
@@ -174,6 +191,7 @@ export class ProblemContentPage {
 
       }
     }
+
     //console.log("problems"+this.problems);
     this.problem =
       {
@@ -191,8 +209,6 @@ export class ProblemContentPage {
           { title: 'Max', note: '40 ºC' },
         ]
       };
-    // console.log(this.problem.items);
-    //this.character = characters[this.params.get('greenhouseId')];
   }
 
   dismiss() {
